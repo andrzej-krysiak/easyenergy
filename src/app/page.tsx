@@ -22,21 +22,21 @@ export default function Home() {
           <div className="flex flex-col space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-1000">
             <h1 className={`${playfair.className} text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 leading-tight tracking-tight`}>
               Profesjonalne doradztwo <br className="hidden sm:block" />
-              w <span className="text-blue-600 relative whitespace-nowrap">
+              w <span className="bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent relative whitespace-nowrap">
                 energetyce
               </span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-slate-700 max-w-xl leading-relaxed font-light">
+            <p className="text-lg text-justify sm:text-xl text-slate-700 max-w-xl leading-relaxed font-light">
               Pomagamy firmom optymalizować koszty zakupu prądu i gazu, oferując skuteczne strategie i kompleksowe wsparcie prawne. Zadbaj o stabilność i przyszłość swojego biznesu.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-5 pt-4">
               <Link
                 href="/kontakt"
-                className="inline-flex justify-center items-center px-8 py-4 text-base font-semibold text-white bg-blue-600 rounded-xl hover:bg-blue-700 active:scale-95 transition-all shadow-lg shadow-blue-600/30"
+                className="inline-flex justify-center items-center px-8 py-4 text-base font-semibold text-white bg-indigo-500 rounded-xl hover:bg-indigo-600 active:scale-95 transition-all shadow-lg shadow-blue-600/30"
               >
-                Darmowa konsultacja
+                Umów Spotkanie
               </Link>
               <Link
                 href="/energia-elektryczna"
