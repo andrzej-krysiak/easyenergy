@@ -1,13 +1,8 @@
-'use client';
-
-import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FiMenu, FiX } from 'react-icons/fi';
+import MobileMenu from './MobileMenu';
 
-const NavBar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
+export default function NavBar() {
     const links = [
         { name: 'Energia Elektryczna', href: '/energia-elektryczna' },
         { name: 'Paliwo Gazowe', href: '/paliwo-gazowe' },
@@ -15,15 +10,13 @@ const NavBar = () => {
         { name: 'Kontakt', href: '/kontakt' },
     ];
 
-    const toggleMenu = () => setIsOpen(!isOpen);
-
     return (
-        <nav className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300">
+        <nav className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300 relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-20">
                     {/* Logo po lewej stronie */}
                     <div className="flex-shrink-0 flex items-center">
-                        <Link href="/" className="flex items-center" onClick={() => setIsOpen(false)}>
+                        <Link href="/" className="flex items-center">
                             <Image
                                 src="/easyenergy-logo.png"
                                 alt="EasyEnergy Logo"
@@ -35,56 +28,24 @@ const NavBar = () => {
                         </Link>
                     </div>
 
-                    {/* Desktop Links */}
-                    <div className="hidden md:flex items-center space-x-8">
+                    {/* Desktop Links - Server Side Rendered */}
+                    <ul className="hidden md:flex items-center space-x-8">
                         {links.map((link) => (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                className="text-slate-600 hover:text-blue-600 font-medium transition-colors duration-300"
-                            >
-                                {link.name}
-                            </Link>
+                            <li key={link.href}>
+                                <Link
+                                    href={link.href}
+                                    className="text-slate-600 hover:text-blue-600 font-medium transition-colors duration-300"
+                                >
+                                    {link.name}
+                                </Link>
+                            </li>
                         ))}
-                    </div>
+                    </ul>
 
-                    {/* Mobile menu button */}
-                    <div className="md:hidden flex items-center">
-                        <button
-                            onClick={toggleMenu}
-                            className="text-slate-600 hover:text-blue-600 focus:outline-none p-2"
-                            aria-label="Toggle menu"
-                        >
-                            {isOpen ? (
-                                <FiX className="h-7 w-7 transition-transform duration-300" />
-                            ) : (
-                                <FiMenu className="h-7 w-7 transition-transform duration-300" />
-                            )}
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            {/* Mobile Menu Overlay */}
-            <div
-                className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white absolute w-full shadow-md border-b border-slate-200 ${isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
-                    }`}
-            >
-                <div className="px-4 pt-2 pb-6 flex flex-col space-y-4">
-                    {links.map((link) => (
-                        <Link
-                            key={link.href}
-                            href={link.href}
-                            onClick={() => setIsOpen(false)}
-                            className="block text-slate-600 hover:text-blue-600 hover:bg-slate-50 font-medium px-3 py-2 rounded-md transition-colors duration-200"
-                        >
-                            {link.name}
-                        </Link>
-                    ))}
+                    {/* Mobile Menu - Client Side Rendered */}
+                    <MobileMenu links={links} />
                 </div>
             </div>
         </nav>
     );
-};
-
-export default NavBar;
+}
