@@ -1,5 +1,8 @@
 import { Playfair_Display } from "next/font/google";
 import Link from "next/link";
+import RoadMap from "./RoadMap";
+import { IoIosArrowDown } from "react-icons/io";
+import { IoIosMail } from "react-icons/io";
 
 const playfair = Playfair_Display({
   subsets: ["latin", "latin-ext"],
@@ -8,14 +11,19 @@ const playfair = Playfair_Display({
 
 export default function Home() {
   return (
-    <main className="min-h-[calc(100vh-80px)] bg-slate-50 relative overflow-hidden flex items-center">
+    <main className="bg-slate-50 relative overflow-hidden">
+      <section className="min-h-[calc(100vh-80px)] flex items-center">
       {/* Dekoracyjne tło w tle */}
+      
+      {/*
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] rounded-full bg-indigo-200 blur-[100px]" />
         <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-200 blur-[120px]" />
       </div>
+      */}
+      
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 lg:py-24 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-16 lg:py-24 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
           {/* Lewa kolumna: Główny napis */}
@@ -34,13 +42,14 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-5 pt-4">
               <Link
                 href="/kontakt"
-                className="inline-flex justify-center items-center px-8 py-4 text-base font-semibold text-white bg-indigo-500 rounded-xl hover:bg-indigo-600 active:scale-95 transition-all shadow-lg shadow-blue-600/30"
+                className="inline-flex justify-center items-center w-full sm:w-[240px] px-8 py-4 text-base font-semibold text-white bg-indigo-500 rounded-xl hover:bg-indigo-600 active:scale-95 transition-all shadow-lg shadow-blue-600/30"
               >
+                <IoIosMail className="w-6 h-6 mr-2"/>
                 Umów Spotkanie
               </Link>
               <Link
                 href="/energia-elektryczna"
-                className="inline-flex justify-center items-center px-8 py-4 text-base font-semibold text-slate-700 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-xl hover:bg-slate-50 hover:border-slate-300 active:scale-95 transition-all shadow-sm"
+                className="inline-flex justify-center items-center w-full sm:w-[240px] px-8 py-4 text-base font-semibold text-slate-700 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-xl hover:bg-slate-50 hover:border-slate-300 active:scale-95 transition-all shadow-sm"
               >
                 Poznaj naszą ofertę
               </Link>
@@ -58,6 +67,11 @@ export default function Home() {
 
         </div>
       </div>
+      </section>
+      <div className="flex justify-center -mt-12 relative z-20 pb-12">
+        <IoIosArrowDown className="w-12 h-12 text-indigo-400 animate-bounce" />
+      </div>
+      <RoadMap />
     </main>
   );
 }
