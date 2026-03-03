@@ -11,7 +11,7 @@ export default function NavBar() {
     ];
 
     return (
-        <nav className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300 relative">
+        <nav className="sticky top-0 z-50 w-full bg-slate-50 backdrop-blur-md border-b border-indigo-200 shadow-sm transition-all duration-300 relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-20">
                     {/* Logo po lewej stronie */}
@@ -34,7 +34,7 @@ export default function NavBar() {
                             <li key={link.href}>
                                 <Link
                                     href={link.href}
-                                    className="text-slate-600 hover:text-blue-600 font-medium transition-colors duration-300"
+                                    className="text-slate-600 text-base hover:text-blue-600 font-medium transition-colors duration-300"
                                 >
                                     {link.name}
                                 </Link>
