@@ -12,13 +12,13 @@ const RoadMap = () => {
   ];
 
   return (
-    <section className="py-0 sm:py-10 bg-slate-50 relative overflow-hidden">
+    <section className="py-0 sm:py-16 bg-slate-50 relative overflow-hidden">
       {/* Ciemny gradient od lewej i prawej strony */}
       <div className="absolute inset-y-0 left-0 w-32 sm:w-64 lg:w-96 bg-gradient-to-r from-blue-900/20 to-transparent pointer-events-none z-0"></div>
       <div className="absolute inset-y-0 right-0 w-32 sm:w-64 lg:w-96 bg-gradient-to-l from-blue-900/20 to-transparent pointer-events-none z-0"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 sm:mb-20">
+        <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-6">
             Jak działamy?
           </h2>

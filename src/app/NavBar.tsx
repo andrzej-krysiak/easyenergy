@@ -1,8 +1,28 @@
+"use client";
+
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import MobileMenu from './MobileMenu';
 
 export default function NavBar() {
+    const [scrolled, setScrolled] = useState(false);
+    const linkStyles = scrolled
+        ? "text-slate-700"
+        : "text-white";
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 20) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
     const links = [
         { name: 'Energia Elektryczna', href: '/energia-elektryczna' },
         { name: 'Paliwo Gazowe', href: '/paliwo-gazowe' },
@@ -11,14 +31,18 @@ export default function NavBar() {
     ];
 
     return (
-        <nav className="sticky top-0 z-50 w-full bg-slate-50 backdrop-blur-md border-b border-indigo-200 shadow-sm transition-all duration-300 relative">
+        <nav className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
+            scrolled 
+                ? "bg-slate-50/95 backdrop-blur-md shadow-sm" 
+                : "bg-transparent border-transparent"
+        }`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-20">
                     {/* Logo po lewej stronie */}
                     <div className="flex-shrink-0 flex items-center">
                         <Link href="/" className="flex items-center">
                             <Image
-                                src="/easyenergy-logo.png"
+                                src={scrolled ? "/easyenergy-logo.png" : "/easyenergy-logo-light.png"}
                                 alt="EasyEnergy Logo"
                                 width={200}
                                 height={60}
@@ -34,7 +58,7 @@ export default function NavBar() {
                             <li key={link.href}>
                                 <Link
                                     href={link.href}
-                                    className="text-slate-600 text-base hover:text-blue-600 font-medium transition-colors duration-300"
+                                    className={`${linkStyles} hover:text-[#3385d9] font-medium transition-colors duration-300`}
                                 >
                                     {link.name}
                                 </Link>

@@ -13,7 +13,7 @@ const playfair = Playfair_Display({
 export default function Home() {
   return (
     <main className="bg-slate-50 relative overflow-hidden">
-      <section className="relative flex items-center justify-center lg:justify-start">
+      <section className="relative min-h-screen flex items-center justify-center lg:justify-start">
         
         {/* Dekoracyjne tło w tle dla mobile */}
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none md:hidden z-0">
@@ -36,7 +36,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-[#1a436d]/40 mix-blend-multiply"></div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-16 pt-8 lg:py-24 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-16 pt-12 lg:pt-40 lg:pb-24 relative z-10">
           <div className="flex flex-col space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 max-w-3xl lg:text-left mx-auto lg:mx-0">
             <h1 className={`${playfair.className} text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 md:text-white leading-tight tracking-tight`}>
               Profesjonalne doradztwo <br className="hidden sm:block" />
@@ -66,10 +66,11 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <div className="absolute bottom-7 left-1/2 -translate-x-1/2 z-20">
+          <IoIosArrowDown className="w-12 h-12 text-[#3385d9] animate-bounce" />
+        </div>
       </section>
-      <div className="flex justify-center -mt-12 relative z-20 pb-12 sm:pb-0">
-        <IoIosArrowDown className="w-12 h-12 text-[#3385d9] animate-bounce" />
-      </div>
+      
       <RoadMap />
     </main>
   );
