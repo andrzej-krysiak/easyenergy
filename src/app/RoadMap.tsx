@@ -13,8 +13,12 @@ const RoadMap = () => {
 
   return (
     <section className="py-0 sm:py-10 bg-slate-50 relative overflow-hidden">
+      {/* Ciemny gradient od lewej i prawej strony */}
+      <div className="absolute inset-y-0 left-0 w-32 sm:w-64 lg:w-96 bg-gradient-to-r from-blue-900/20 to-transparent pointer-events-none z-0"></div>
+      <div className="absolute inset-y-0 right-0 w-32 sm:w-64 lg:w-96 bg-gradient-to-l from-blue-900/20 to-transparent pointer-events-none z-0"></div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 sm:mb-24">
+        <div className="text-center mb-16 sm:mb-20">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-6">
             Jak działamy?
           </h2>
@@ -27,21 +31,21 @@ const RoadMap = () => {
           {steps.map((step) => (
             <div 
               key={step.id}
-              className="group relative bg-white rounded-2xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:border-indigo-100 transition-all duration-300 flex flex-col h-full"
+              className="group relative bg-white rounded-2xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:border-[#3385d9]/30 transition-all duration-300 flex flex-col h-full"
             >
               {/* Odznaka z Krok X */}
               <div className="inline-flex items-center space-x-2 mb-6">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-indigo-50 text-indigo-600 font-bold">
+                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#3385d9]/10 text-[#3385d9] font-bold">
                   <step.icon className="w-4 h-4" />
                 </span>
-                <span className="text-sm font-semibold tracking-wider text-indigo-500 uppercase">
+                <span className="text-sm font-semibold tracking-wider text-[#3385d9] uppercase">
                   {step.stepNumber}
                 </span>
               </div>
               
               <div className="flex-grow">
                 {/* Główny tytuł etapu */}
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-4 group-hover:text-indigo-600 transition-colors duration-300">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-4 group-hover:text-[#3385d9] transition-colors duration-300">
                   {step.title}
                 </h3>
                 
