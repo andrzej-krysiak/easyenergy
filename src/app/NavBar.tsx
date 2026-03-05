@@ -5,13 +5,18 @@ import Link from 'next/link';
 import Image from 'next/image';
 import MobileMenu from './MobileMenu';
 
-export default function NavBar() {
-    const [scrolled, setScrolled] = useState(false);
+export default function NavBar({ isStatic = false }: { isStatic?: boolean }) {
+    const [scrolled, setScrolled] = useState(isStatic);
     const linkStyles = scrolled
         ? "text-slate-700"
         : "text-white";
 
     useEffect(() => {
+        if (isStatic) {
+            setScrolled(true);
+            return;
+        }
+
         const handleScroll = () => {
             if (window.scrollY > 20) {
                 setScrolled(true);
@@ -22,7 +27,7 @@ export default function NavBar() {
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [isStatic]);
     const links = [
         { name: 'Energia Elektryczna', href: '/energia-elektryczna' },
         { name: 'Paliwo Gazowe', href: '/paliwo-gazowe' },

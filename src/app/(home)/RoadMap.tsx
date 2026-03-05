@@ -12,12 +12,22 @@ const RoadMap = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-slate-50 relative overflow-hidden">
-      {/* Tło - dekoracyjne gradienty */}
-      <div className="absolute inset-y-0 left-0 w-32 sm:w-64 lg:w-96 bg-gradient-to-r from-blue-900/10 to-transparent pointer-events-none z-0"></div>
-      <div className="absolute inset-y-0 right-0 w-32 sm:w-64 lg:w-96 bg-gradient-to-l from-blue-900/10 to-transparent pointer-events-none z-0"></div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="py-16 sm:py-24 bg-slate-50 relative overflow-hidden flex justify-center">
+      {/* Duże tło SVG w kształcie litery S/pioruna, wyśrodkowane i dyskretne */}
+      {/* Duże tło SVG w kształcie pioruna */}
+      <svg 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] lg:w-[1500px] lg:h-[1500px] text-slate-200/35 drop-shadow-[0_20px_50px_rgba(51,133,217,0.12)] z-0 pointer-events-none"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13 2L4 14h6l-1 8 11-14h-7l0-6z"
+          fillRule="evenodd"
+          clipRule="evenodd"
+        />
+      </svg>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="text-center mb-16 md:mb-24">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-6">
             Jak działamy?
@@ -37,7 +47,7 @@ const RoadMap = () => {
               const isEven = index % 2 === 1;
 
               return (
-                <div key={step.id} className="relative flex items-center justify-between md:mb-16 md:even:flex-row-reverse group">
+                <div key={step.id} className="relative flex items-center justify-between md:mb-4 md:even:flex-row-reverse group">
 
                   {/* Zawartość (Karta) */}
                   <div className="w-full pl-16 md:pl-0 md:w-[45%]">
