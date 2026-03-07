@@ -51,7 +51,7 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-5 pt-2 sm:pt-6 justify-center lg:justify-start">
               <Link
-                href="/kontakt"
+                href="/umow-spotkanie"
                 className="inline-flex justify-center items-center w-full sm:w-[240px] px-8 py-4 text-base font-semibold text-white bg-[#3385d9] rounded-xl hover:bg-[#286bb3] active:scale-95 transition-all shadow-lg shadow-[#3385d9]/30"
               >
                 <IoIosMail className="w-6 h-6 mr-2"/>
