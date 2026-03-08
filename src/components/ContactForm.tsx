@@ -21,7 +21,7 @@ const ContactForm = () => {
 
   const validate = () => {
     const result = contactFormSchema.safeParse(formData);
-    
+
     if (!result.success) {
       const newErrors: { [key: string]: string } = {};
       result.error.issues.forEach((issue) => {
@@ -30,7 +30,7 @@ const ContactForm = () => {
       setErrors(newErrors);
       return false;
     }
-    
+
     setErrors({});
     return true;
   };
@@ -93,7 +93,7 @@ const ContactForm = () => {
                 value={formData.companyName}
                 onChange={handleChange}
                 placeholder="np. Eco Solutions Sp. z o.o."
-                className={`w-full px-4 py-3 rounded-xl border ${errors.companyName ? 'border-red-500 bg-red-50' : 'border-slate-200'} focus:ring-2 focus:ring-[#3385d9]/20 focus:border-[#3385d9] outline-none transition-all`}
+                className={`w-full text-slate-900 px-4 py-3 rounded-xl border ${errors.companyName ? 'border-red-500 bg-red-50' : 'border-slate-200'} focus:ring-2 focus:ring-[#3385d9]/20 focus:border-[#3385d9] outline-none transition-all`}
               />
               {errors.companyName && <p className="text-red-500 text-xs mt-1 ml-1">{errors.companyName}</p>}
             </div>
@@ -104,8 +104,8 @@ const ContactForm = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder="+48 000 000 000"
-                className={`w-full px-4 py-3 rounded-xl border ${errors.phone ? 'border-red-500 bg-red-50' : 'border-slate-200'} focus:ring-2 focus:ring-[#3385d9]/20 focus:border-[#3385d9] outline-none transition-all`}
+                placeholder="+48 123 456 789"
+                className={`w-full text-slate-900 px-4 py-3 rounded-xl border ${errors.phone ? 'border-red-500 bg-red-50' : 'border-slate-200'} focus:ring-2 focus:ring-[#3385d9]/20 focus:border-[#3385d9] outline-none transition-all`}
               />
               {errors.phone && <p className="text-red-500 text-xs mt-1 ml-1">{errors.phone}</p>}
             </div>
@@ -119,7 +119,7 @@ const ContactForm = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="kontakt@twojafirma.pl"
-              className={`w-full px-4 py-3 rounded-xl border ${errors.email ? 'border-red-500 bg-red-50' : 'border-slate-200'} focus:ring-2 focus:ring-[#3385d9]/20 focus:border-[#3385d9] outline-none transition-all`}
+              className={`w-full text-slate-900 px-4 py-3 rounded-xl border ${errors.email ? 'border-red-500 bg-red-50' : 'border-slate-200'} focus:ring-2 focus:ring-[#3385d9]/20 focus:border-[#3385d9] outline-none transition-all`}
             />
             {errors.email && <p className="text-red-500 text-xs mt-1 ml-1">{errors.email}</p>}
           </div>
@@ -132,7 +132,7 @@ const ContactForm = () => {
               onChange={handleChange}
               rows={4}
               placeholder="W czym możemy Ci pomóc?"
-              className={`w-full px-4 py-3 rounded-xl border ${errors.message ? 'border-red-500 bg-red-50' : 'border-slate-200'} focus:ring-2 focus:ring-[#3385d9]/20 focus:border-[#3385d9] outline-none transition-all resize-none`}
+              className={`w-full text-slate-900 px-4 py-3 rounded-xl border ${errors.message ? 'border-red-500 bg-red-50' : 'border-slate-200'} focus:ring-2 focus:ring-[#3385d9]/20 focus:border-[#3385d9] outline-none transition-all resize-none`}
             />
             {errors.message && <p className="text-red-500 text-xs mt-1 ml-1">{errors.message}</p>}
           </div>

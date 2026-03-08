@@ -1,11 +1,12 @@
+"use client";
+
 import React from 'react';
 import { FiMapPin, FiClock, FiPhone, FiMail } from 'react-icons/fi';
 import MapWrapper from '../../../components/MapWrapper';
 
 const ContactPage = () => {
-
   return (
-    <main className="min-h-screen bg-slate-50 pt-30 pb-16 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-slate-50 pt-24 pb-16 px-4 sm:px-6 lg:px-8">
       {/* Nagłówek sekcji */}
       <div className="max-w-7xl mx-auto text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 font-serif">
@@ -17,7 +18,7 @@ const ContactPage = () => {
       </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10">
-        
+
         {/* Lewa strona - Mapa */}
         <div className="bg-white p-2 rounded-3xl shadow-lg border border-slate-100 h-[400px] lg:h-auto min-h-[400px] relative z-0">
           <MapWrapper />
@@ -25,7 +26,7 @@ const ContactPage = () => {
 
         {/* Prawa strona - Dane kontaktowe */}
         <div className="flex flex-col gap-6 lg:gap-8">
-          
+
           {/* Nasz adres */}
           <div className="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow group">
             <div className="flex items-start">
@@ -89,7 +90,6 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
-
     </main>
   );
 };

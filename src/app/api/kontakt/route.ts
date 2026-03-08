@@ -1,19 +1,19 @@
 import { NextResponse } from 'next/server';
-import { contactFormSchema } from '../../../components/ValidationSchema'; 
+import { contactFormSchema } from '../../../components/ValidationSchema';
 import { Resend } from 'resend';
 import { renderAdminContactEmail } from '../../emails/adminContactEmail';
 import { renderUserContactEmail } from '../../emails/userContactEmail';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const adminEmail = process.env.ADMIN_EMAIL || 'biuro@easyenergy.pl'; // Zmień na swój email lub użyj .env
+const adminEmail = process.env.ADMIN_EMAIL;
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    
+
     // Walidacja danych przy pomocy tego samego schematu Zod co na frontendzie
     const result = contactFormSchema.safeParse(body);
-    
+
     if (!result.success) {
       const errorMessage = result.error.issues[0]?.message || 'Nieprawidłowe dane formularza.';
       return NextResponse.json(
@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     // Wysyłanie emaila do administratora (Ciebie)
     const adminEmailData = await resend.emails.send({
       from: 'Kontakt <onboarding@resend.dev>', // Zmień na swoją zweryfikowaną domenę na produkcji
-      to: [adminEmail],
+      to: [adminEmail!],
       subject: `Nowe zapytanie od: ${companyName}`,
       html: renderAdminContactEmail({ companyName, phone, email, message }),
     });
