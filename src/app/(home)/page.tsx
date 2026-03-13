@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className="bg-slate-50 relative overflow-hidden">
       <section className="relative min-h-screen flex items-center justify-center lg:justify-start">
-        
+
         {/* Dekoracyjne tło w tle dla mobile */}
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none md:hidden z-0">
           <div className="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] rounded-full bg-[#3385d9]/20 blur-[100px]" />
@@ -35,7 +35,7 @@ export default function Home() {
           {/* Delikatny wash w kolorze logo dodający nowoczesnego "wizjonerskiego" sznytu */}
           <div className="absolute inset-0 bg-[#1a436d]/40 mix-blend-multiply"></div>
         </div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-16 pt-12 lg:pt-40 lg:pb-24 relative z-10">
           <div className="flex flex-col space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 max-w-3xl lg:text-left mx-auto lg:mx-0">
             <h1 className={`${playfair.className} text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 md:text-white leading-tight tracking-tight`}>
@@ -51,10 +51,10 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-5 pt-2 sm:pt-6 justify-center lg:justify-start">
               <Link
-                href="/umow-spotkanie"
+                href="/kontakt"
                 className="inline-flex justify-center items-center w-full sm:w-[240px] px-8 py-4 text-base font-semibold text-white bg-[#3385d9] rounded-xl hover:bg-[#286bb3] active:scale-95 transition-all shadow-lg shadow-[#3385d9]/30"
               >
-                <IoIosMail className="w-6 h-6 mr-2"/>
+                <IoIosMail className="w-6 h-6 mr-2" />
                 Umów Spotkanie
               </Link>
               <Link
@@ -70,7 +70,7 @@ export default function Home() {
           <IoIosArrowDown className="w-12 h-12 text-[#3385d9] animate-bounce" />
         </div>
       </section>
-      
+
       <RoadMap />
     </main>
   );

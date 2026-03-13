@@ -74,14 +74,9 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="bg-white rounded-3xl p-8 lg:p-12 border border-slate-100 shadow-lg">
+    <div className="bg-white/70 backdrop-blur-xl rounded-3xl p-8 lg:p-12 border border-slate-200 shadow-xl relative z-10">
       <div className="max-w-3xl mx-auto">
-        <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-8 flex items-center justify-center lg:justify-start">
-          <span className="w-10 h-10 rounded-xl bg-[#3385d9] text-white flex items-center justify-center mr-4">
-            <FiSend className="w-5 h-5" />
-          </span>
-          Wyślij wiadomość
-        </h3>
+
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -93,7 +88,7 @@ const ContactForm = () => {
                 value={formData.companyName}
                 onChange={handleChange}
                 placeholder="np. Eco Solutions Sp. z o.o."
-                className={`w-full text-slate-900 px-4 py-3 rounded-xl border ${errors.companyName ? 'border-red-500 bg-red-50' : 'border-slate-200'} focus:ring-2 focus:ring-[#3385d9]/20 focus:border-[#3385d9] outline-none transition-all`}
+                className={`w-full text-slate-900 bg-white/50 px-4 py-3 rounded-xl border ${errors.companyName ? 'border-red-400 bg-red-50' : 'border-slate-200'} focus:ring-2 focus:ring-[#3385d9]/20 focus:border-[#3385d9] focus:bg-white outline-none transition-all placeholder:text-slate-400`}
               />
               {errors.companyName && <p className="text-red-500 text-xs mt-1 ml-1">{errors.companyName}</p>}
             </div>
@@ -105,7 +100,7 @@ const ContactForm = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="+48 123 456 789"
-                className={`w-full text-slate-900 px-4 py-3 rounded-xl border ${errors.phone ? 'border-red-500 bg-red-50' : 'border-slate-200'} focus:ring-2 focus:ring-[#3385d9]/20 focus:border-[#3385d9] outline-none transition-all`}
+                className={`w-full text-slate-900 bg-white/50 px-4 py-3 rounded-xl border ${errors.phone ? 'border-red-400 bg-red-50' : 'border-slate-200'} focus:ring-2 focus:ring-[#3385d9]/20 focus:border-[#3385d9] focus:bg-white outline-none transition-all placeholder:text-slate-400`}
               />
               {errors.phone && <p className="text-red-500 text-xs mt-1 ml-1">{errors.phone}</p>}
             </div>
@@ -119,7 +114,7 @@ const ContactForm = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="kontakt@twojafirma.pl"
-              className={`w-full text-slate-900 px-4 py-3 rounded-xl border ${errors.email ? 'border-red-500 bg-red-50' : 'border-slate-200'} focus:ring-2 focus:ring-[#3385d9]/20 focus:border-[#3385d9] outline-none transition-all`}
+              className={`w-full text-slate-900 bg-white/50 px-4 py-3 rounded-xl border ${errors.email ? 'border-red-400 bg-red-50' : 'border-slate-200'} focus:ring-2 focus:ring-[#3385d9]/20 focus:border-[#3385d9] focus:bg-white outline-none transition-all placeholder:text-slate-400`}
             />
             {errors.email && <p className="text-red-500 text-xs mt-1 ml-1">{errors.email}</p>}
           </div>
@@ -132,7 +127,7 @@ const ContactForm = () => {
               onChange={handleChange}
               rows={4}
               placeholder="W czym możemy Ci pomóc?"
-              className={`w-full text-slate-900 px-4 py-3 rounded-xl border ${errors.message ? 'border-red-500 bg-red-50' : 'border-slate-200'} focus:ring-2 focus:ring-[#3385d9]/20 focus:border-[#3385d9] outline-none transition-all resize-none`}
+              className={`w-full text-slate-900 bg-white/50 px-4 py-3 rounded-xl border ${errors.message ? 'border-red-400 bg-red-50' : 'border-slate-200'} focus:ring-2 focus:ring-[#3385d9]/20 focus:border-[#3385d9] focus:bg-white outline-none transition-all resize-none placeholder:text-slate-400`}
             />
             {errors.message && <p className="text-red-500 text-xs mt-1 ml-1">{errors.message}</p>}
           </div>
@@ -140,27 +135,27 @@ const ContactForm = () => {
           <button
             type="submit"
             disabled={status.type === 'loading'}
-            className="w-full bg-[#3385d9] hover:bg-[#286bb0] text-white font-bold py-4 px-6 rounded-xl transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+            className="w-full bg-[#3385d9] hover:bg-[#2a6fb8] text-white font-bold py-4 px-6 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center space-x-2"
           >
             {status.type === 'loading' ? (
               <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
             ) : (
               <>
                 <span>Wyślij zgłoszenie</span>
-                <FiSend className="w-5 h-5" />
+                <FiSend className="w-5 h-5 ml-1" />
               </>
             )}
           </button>
 
           {status.type === 'success' && (
-            <div className="flex items-center p-4 bg-green-50 border border-green-100 text-green-700 rounded-xl animate-in fade-in slide-in-from-top-2">
+            <div className="flex items-center p-4 bg-green-50 border border-green-200 text-green-700 rounded-xl animate-in fade-in slide-in-from-top-2">
               <FiCheckCircle className="w-5 h-5 mr-3 shrink-0" />
               <p className="text-sm font-medium">{status.message}</p>
             </div>
           )}
 
           {status.type === 'error' && (
-            <div className="flex items-center p-4 bg-red-50 border border-red-100 text-red-700 rounded-xl animate-in fade-in slide-in-from-top-2">
+            <div className="flex items-center p-4 bg-red-50 border border-red-200 text-red-700 rounded-xl animate-in fade-in slide-in-from-top-2">
               <FiAlertCircle className="w-5 h-5 mr-3 shrink-0" />
               <p className="text-sm font-medium">{status.message}</p>
             </div>
