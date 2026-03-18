@@ -1,23 +1,75 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #f6f6f8;
   --foreground: #171717;
+  --primary: #3385d9;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary-contact: var(--primary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .apple-blur {
+    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  }
+
+  .form-input-focus:focus {
+    border-color: #3385d9 !important;
+    box-shadow: 0 0 0 4px rgba(51, 133, 217, 0.05) !important;
+  }
+
+  .mesh-gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    overflow: hidden;
+    background-color: var(--background);
+  }
+
+  .blob {
+    position: absolute;
+    filter: blur(80px);
+    opacity: 0.4;
+    border-radius: 50%;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+      transform: translate(100px, 50px) scale(1.1);
+    }
+  }
+
+  .animate-blob-float {
+    animation: float 20s infinite alternate;
+  }
+
+  .animate-blob-float-reverse {
+    animation: float 25s infinite alternate-reverse;
   }
 }
+
+/* Dark mode override removed to allow manual --background control */
 
 .leaflet-container img {
   max-width: none !important;

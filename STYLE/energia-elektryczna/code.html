@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<title>Energia Elektryczna - Energia</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200/50 dark:border-slate-800/50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-2 group cursor-pointer">
+<div class="size-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-2xl">bolt</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Energia</span>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors" href="#">Oferta</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors" href="#">Cennik</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors" href="#">O nas</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors" href="#">Kontakt</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-sm font-semibold text-slate-900 dark:text-white px-4 py-2 hover:bg-slate-200/50 rounded-lg transition-all">Panel Klienta</button>
+<button class="bg-primary text-white text-sm font-bold px-6 py-2.5 rounded-xl hover:shadow-lg hover:shadow-primary/30 transition-all active:scale-95">
+                    Rozpocznij
+                </button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-6 pt-16 pb-24">
+<div class="max-w-3xl">
+<nav class="flex items-center gap-2 text-sm text-slate-500 mb-8">
+<span>Strona główna</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-primary font-medium">Energia elektryczna</span>
+</nav>
+<h1 class="text-5xl md:text-7xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-8">
+                    Energia, która napędza <span class="text-primary">Twoją przyszłość.</span>
+</h1>
+<p class="text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
+                    Dostarczamy nowoczesne rozwiązania energetyczne oparte na czystych źródłach i transparentnych zasadach. Wybierz segment dopasowany do Twojego stylu życia.
+                </p>
+</div>
+</section>
+<!-- Interactive Segments Section -->
+<section class="max-w-7xl mx-auto px-6 pb-32">
+<div class="flex items-end justify-between mb-12">
+<div>
+<h2 class="text-3xl font-bold tracking-tight mb-2">Nasze segmenty</h2>
+<p class="text-slate-500">Dopasowane rozwiązania dla każdego rodzaju odbiorcy.</p>
+</div>
+<div class="flex gap-2">
+<button class="size-12 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-400 hover:bg-white hover:text-primary transition-all shadow-sm">
+<span class="material-symbols-outlined">west</span>
+</button>
+<button class="size-12 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-400 hover:bg-white hover:text-primary transition-all shadow-sm">
+<span class="material-symbols-outlined">east</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<!-- Segment Card 1: Dom -->
+<div class="group bg-white dark:bg-slate-900 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-12 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+<div class="flex-1 space-y-6">
+<div class="size-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">home</span>
+</div>
+<div>
+<h3 class="text-3xl font-bold mb-4 tracking-tight">Energia dla Domu</h3>
+<p class="text-slate-500 dark:text-slate-400 text-lg leading-relaxed">
+                                Stabilność i bezpieczeństwo dla Twojej rodziny. Gwarantujemy stałą cenę przez cały okres trwania umowy oraz dostęp do nowoczesnych systemów Smart Home.
+                            </p>
+</div>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                Gwarancja stałej ceny przez 24 miesiące
+                            </li>
+<li class="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                100% energii z OZE (opcjonalnie)
+                            </li>
+</ul>
+<button class="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white px-8 py-3 rounded-xl font-bold hover:bg-primary hover:text-white transition-all">
+                            Poznaj ofertę
+                        </button>
+</div>
+<div class="flex-1 w-full h-[400px] overflow-hidden rounded-2xl relative">
+<img alt="Interior of a modern house" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern high-end house interior with solar energy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSf6UDen5_OOavaRnwtICq9eNFAl_okwuvCmeBEIdyhZONBpBWQLhRtlCKhX-1TuMN5UhfQ0HjVu9yy8f-tFt5LwJcetFr-PNESyi96ktcY_KczTLsTguGEvJYfVLD0NIqUAPULssjhjbIuO2spiNkyaL5X9lo3PngSjUiGLlNnD_TGkVuI4SHsQQYUn_ZG8ndRgJLHOIJykiEgS7Rf_puNql18Am65BdnC3CfzlAlVzNXRDQdMCK07oqEzaosjvOmosvdCxSQ1xU"/>
+</div>
+</div>
+<!-- Segment Card 2: Biznes -->
+<div class="group bg-white dark:bg-slate-900 rounded-3xl p-8 flex flex-col md:flex-row-reverse items-center gap-12 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+<div class="flex-1 space-y-6">
+<div class="size-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">business</span>
+</div>
+<div>
+<h3 class="text-3xl font-bold mb-4 tracking-tight">Energia dla Biznesu</h3>
+<p class="text-slate-500 dark:text-slate-400 text-lg leading-relaxed">
+                                Optymalizacja kosztów operacyjnych Twojej firmy. Elastyczne taryfy dopasowane do profilu zużycia i profesjonalny auditing energetyczny w cenie.
+                            </p>
+</div>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                Indywidualny opiekun biznesowy
+                            </li>
+<li class="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                Raporty efektywności co kwartał
+                            </li>
+</ul>
+<button class="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white px-8 py-3 rounded-xl font-bold hover:bg-primary hover:text-white transition-all">
+                            Poznaj ofertę
+                        </button>
+</div>
+<div class="flex-1 w-full h-[400px] overflow-hidden rounded-2xl relative">
+<img alt="Corporate office building" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern corporate office building energy efficient" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoB4Bjbf7RmayDBva0AW_5NWa3pczk17ixCB3vdc8dvM4mz5Ftxvbn_5m0Sd7W1-M-CjKg-jqQRmNnH2pcxOUylxAd7XBlECHwbipSiY-4hNv-3hfaOZjJH01nfMqOwnsGGKJ5CfhjLiBV4i_XzrwJ5bhKH9YIafXeNV_hiIKBH1W3Bm6BwV7oo1ZwxaJLRLxpLGNz-TbpiSP_Kx7TKQ3mxGJb4lNiXuerDrVU3kL6cCvY5MzT9PYHAM6oNrJMgD1bKuxchmLkkAA"/>
+</div>
+</div>
+<!-- Segment Card 3: Przemysł -->
+<div class="group bg-white dark:bg-slate-900 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-12 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+<div class="flex-1 space-y-6">
+<div class="size-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">factory</span>
+</div>
+<div>
+<h3 class="text-3xl font-bold mb-4 tracking-tight">Energia dla Przemysłu</h3>
+<p class="text-slate-500 dark:text-slate-400 text-lg leading-relaxed">
+                                Rozwiązania wysokiej mocy dla najbardziej wymagających. Integracja z własnymi źródłami OZE oraz zaawansowane systemy stabilizacji napięcia.
+                            </p>
+</div>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                Taryfy hurtowe bezpośrednio z rynku
+                            </li>
+<li class="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                Wsparcie techniczne 24/7/365
+                            </li>
+</ul>
+<button class="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white px-8 py-3 rounded-xl font-bold hover:bg-primary hover:text-white transition-all">
+                            Poznaj ofertę
+                        </button>
+</div>
+<div class="flex-1 w-full h-[400px] overflow-hidden rounded-2xl relative">
+<img alt="Industrial facility" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="High voltage industrial electrical installation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7HaG6IwaPY1XKOkJLfSjDmrngkCWaEA5lTT19QwX_k-T8qksJMaMiOPsrWynx0ZbiNM3-Pq0a1ZovuC1aYncif9rV25ql3gssrh4LQoTAjL8P9aAMzYQITWJiCMheidWzVTQ87yv25k35Rh4SH2074XHZniwI0ID9kjcaSLy1Fr0aLiI0_QzMoVh7BtC5pZQf6vmWGngPZ6shINY-fed9i6Inbkt6Rh5LG0TPGJ2toXpoWnw8gcYCruA5qWxHbuALBrN4TS78QAo"/>
+</div>
+</div>
+<!-- Segment Card 4: Rolnictwo -->
+<div class="group bg-white dark:bg-slate-900 rounded-3xl p-8 flex flex-col md:flex-row-reverse items-center gap-12 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+<div class="flex-1 space-y-6">
+<div class="size-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">agriculture</span>
+</div>
+<div>
+<h3 class="text-3xl font-bold mb-4 tracking-tight">Energia dla Rolnictwa</h3>
+<p class="text-slate-500 dark:text-slate-400 text-lg leading-relaxed">
+                                Wspieramy rozwój polskiej wsi. Specjalne programy dofinansowań do fotowoltaiki i pomp ciepła dla gospodarstw rolnych.
+                            </p>
+</div>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                Dogodne systemy ratalne
+                            </li>
+<li class="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                Pomoc w pozyskaniu dotacji unijnych
+                            </li>
+</ul>
+<button class="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white px-8 py-3 rounded-xl font-bold hover:bg-primary hover:text-white transition-all">
+                            Poznaj ofertę
+                        </button>
+</div>
+<div class="flex-1 w-full h-[400px] overflow-hidden rounded-2xl relative">
+<img alt="Sustainable farm" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern farm with solar panels and green fields" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN2_61CWZDXgx7vGd191qYLKCsMuooM1p4XsV_e6BJit6NJvoH_ceuQoaRNsHD4VD77K-2VRRWlTyKakptOWwR5LLLWMLpLENfqOT2nfby52YZcZAh0b6YCFmfId8qjeCCRicombv1CsUZjbsRrcPmNaZCLYxysaBgzpqwDKtGjdo7x5iuq6sDvg5gw9W8PYBC3iHPUbRpXOd6EBOLBXPQxNOcnKVX8BxOJuQRT9fENihsjyaAtvYDUZUs4Vjc34lBiX6I2eDwdKA"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Doradztwo Eksperckie Section -->
+<section class="bg-slate-900 dark:bg-background-dark py-32 overflow-hidden relative">
+<!-- Decorative Background Element -->
+<div class="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="flex flex-col lg:flex-row items-center gap-16">
+<div class="flex-1 space-y-8">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 text-primary border border-primary/20 text-xs font-bold uppercase tracking-widest">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+                            Doradztwo eksperckie
+                        </div>
+<h2 class="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">
+                            Nie wiesz jaki pakiet wybrać? <br/>
+<span class="text-slate-400">Nasi eksperci pomogą Ci podjąć decyzję.</span>
+</h2>
+<p class="text-slate-400 text-lg max-w-xl leading-relaxed">
+                            Bezpłatna analiza profilu zużycia energii w Twoim domu lub firmie. Dobierzemy parametry tak, abyś płacił tylko za to, czego faktycznie potrzebujesz.
+                        </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold transition-all flex items-center gap-2 group shadow-xl shadow-primary/20">
+                                Zamów darmową konsultację
+                                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="bg-slate-800 hover:bg-slate-700 text-white px-8 py-4 rounded-xl font-bold transition-all border border-slate-700">
+                                Pobierz broszurę PDF
+                            </button>
+</div>
+</div>
+<div class="flex-1 grid grid-cols-2 gap-4">
+<div class="space-y-4 pt-12">
+<div class="bg-slate-800/50 backdrop-blur-sm p-6 rounded-2xl border border-slate-700/50">
+<span class="material-symbols-outlined text-primary text-3xl mb-4">query_stats</span>
+<h4 class="text-white font-bold mb-1">Analiza danych</h4>
+<p class="text-slate-400 text-sm">Przeglądamy Twoje rachunki z ostatnich 12 miesięcy.</p>
+</div>
+<div class="bg-slate-800/50 backdrop-blur-sm p-6 rounded-2xl border border-slate-700/50">
+<span class="material-symbols-outlined text-primary text-3xl mb-4">energy_savings_leaf</span>
+<h4 class="text-white font-bold mb-1">Optymalizacja OZE</h4>
+<p class="text-slate-400 text-sm">Sprawdzamy potencjał instalacji fotowoltaicznej.</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="bg-slate-800/50 backdrop-blur-sm p-6 rounded-2xl border border-slate-700/50">
+<span class="material-symbols-outlined text-primary text-3xl mb-4">verified_user</span>
+<h4 class="text-white font-bold mb-1">Prawne wsparcie</h4>
+<p class="text-slate-400 text-sm">Pomagamy w formalnościach przy zmianie dostawcy.</p>
+</div>
+<div class="bg-slate-800/50 backdrop-blur-sm p-6 rounded-2xl border border-slate-700/50">
+<span class="material-symbols-outlined text-primary text-3xl mb-4">support_agent</span>
+<h4 class="text-white font-bold mb-1">Opieka 24h</h4>
+<p class="text-slate-400 text-sm">Dedykowany doradca dostępny pod telefonem.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 py-16">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-xl">bolt</span>
+</div>
+<span class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">Energia</span>
+</div>
+<p class="text-slate-500 text-sm leading-relaxed">
+                        Innowacyjny dostawca energii dla nowoczesnych domów i firm. Napędzamy przyszłość zrównoważonymi rozwiązaniami.
+                    </p>
+</div>
+<div>
+<h5 class="font-bold mb-6">O nas</h5>
+<ul class="space-y-4 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">Nasza misja</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Zespół</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Kariera</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Kontakt</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6">Produkty</h5>
+<ul class="space-y-4 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">Energia elektryczna</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Fotowoltaika</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Magazyny energii</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Ładowarki EV</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6">Zapisz się do Newslettera</h5>
+<p class="text-sm text-slate-500 mb-4">Otrzymuj porady dotyczące oszczędzania energii.</p>
+<div class="flex gap-2">
+<input class="flex-1 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:ring-primary focus:border-primary" placeholder="Twój e-mail" type="email"/>
+<button class="bg-primary text-white px-4 py-2 rounded-lg font-bold">OK</button>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+<p>© 2024 Energia S.A. Wszystkie prawa zastrzeżone.</p>
+<div class="flex gap-8">
+<a class="hover:text-slate-600 transition-colors" href="#">Polityka prywatności</a>
+<a class="hover:text-slate-600 transition-colors" href="#">Regulamin</a>
+<a class="hover:text-slate-600 transition-colors" href="#">Cookies</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

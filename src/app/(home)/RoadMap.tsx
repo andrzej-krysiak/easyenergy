@@ -12,7 +12,7 @@ const RoadMap = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-slate-50 relative overflow-hidden flex justify-center">
+    <section className="py-16 sm:py-24 relative overflow-hidden flex justify-center">
       {/* Duże tło SVG w kształcie litery S/pioruna, wyśrodkowane i dyskretne */}
       {/* Duże tło SVG w kształcie pioruna */}
       <svg 

@@ -33,7 +33,7 @@ export default function MobileMenu({ links }: { links: LinkItem[] }) {
 
             {/* Mobile Menu Overlay */}
             <div
-                className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white absolute w-full left-0 top-20 shadow-md border-b border-slate-200 ${isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+                className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-[var(--background)] absolute w-full left-0 top-20 shadow-md border-b border-slate-200 ${isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
                     }`}
             >
                 <ul className="px-4 pt-2 pb-6 flex flex-col space-y-4">

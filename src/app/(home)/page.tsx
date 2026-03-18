@@ -12,7 +12,7 @@ const playfair = Playfair_Display({
 
 export default function Home() {
   return (
-    <main className="bg-slate-50 relative overflow-hidden">
+    <main className="relative overflow-hidden">
       <section className="relative min-h-screen flex items-center justify-center lg:justify-start">
 
         {/* Dekoracyjne tło w tle dla mobile */}
