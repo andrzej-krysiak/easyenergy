@@ -6,27 +6,22 @@ import Image from 'next/image';
 import MobileMenu from './MobileMenu';
 
 export default function NavBar({ isStatic = false }: { isStatic?: boolean }) {
-    const [scrolled, setScrolled] = useState(isStatic);
-    const linkStyles = scrolled
+    const [scrolled, setScrolled] = useState(false);
+    const isFloating = scrolled;
+    const useSolidVariant = isStatic || scrolled;
+    const linkStyles = useSolidVariant
         ? "text-slate-700"
         : "text-white";
 
     useEffect(() => {
-        if (isStatic) {
-            return;
-        }
-
         const handleScroll = () => {
-            if (window.scrollY > 20) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
+            setScrolled(window.scrollY > 20);
         };
 
+        handleScroll();
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [isStatic]);
+    }, []);
     const links = [
         { name: 'Energia Elektryczna', href: '/energia-elektryczna' },
         { name: 'Paliwo Gazowe', href: '/paliwo-gazowe' },
@@ -35,18 +30,26 @@ export default function NavBar({ isStatic = false }: { isStatic?: boolean }) {
     ];
 
     return (
-        <nav className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
-            scrolled 
-                ? "bg-[var(--background)]/95 backdrop-blur-md shadow-sm" 
-                : "bg-transparent border-transparent"
-        }`}>
+        <nav
+            className={`fixed inset-x-0 z-50 w-full transition-[top] duration-300 ${
+                isFloating ? "top-3 sm:top-4" : "top-0"
+            }`}
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-20">
+                <div
+                    className={`flex justify-between items-center h-20 px-4 sm:px-6 lg:px-8 border transition-[background-color,border-color,box-shadow,border-radius,backdrop-filter] duration-300 ${
+                        scrolled
+                            ? "bg-white/78 backdrop-blur-xl supports-[backdrop-filter]:bg-white/70 shadow-[0_8px_28px_rgba(15,23,42,0.12)] border-white/55 rounded-full"
+                            : isStatic
+                                ? "bg-transparent border-transparent shadow-none rounded-none backdrop-blur-0"
+                                : "bg-transparent border-transparent shadow-none rounded-none backdrop-blur-0"
+                    }`}
+                >
                     {/* Logo po lewej stronie */}
                     <div className="flex-shrink-0 flex items-center">
                         <Link href="/" className="flex items-center">
                             <Image
-                                src={scrolled ? "/easyenergy-logo.png" : "/easyenergy-logo-light.png"}
+                                src={useSolidVariant ? "/easyenergy-logo.png" : "/easyenergy-logo-light.png"}
                                 alt="EasyEnergy Logo"
                                 width={200}
                                 height={60}

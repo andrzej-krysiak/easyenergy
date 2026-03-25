@@ -31,7 +31,7 @@ export default function Home() {
                     
 
                     {/* Główny Nagłówek */}
-                    <h1 className="text-4xl sm:text-5xl md:text-[5rem] lg:text-[6.5rem] font-black text-white leading-[1.0] md:leading-[0.95] tracking-tighter mb-18 max-w-4xl drop-shadow-[0_12px_40px_rgba(0,0,0,0.35)]">
+                    <h1 className="text-4xl sm:text-5xl md:text-[5rem] lg:text-[6.5rem] font-black text-white leading-[1.0] md:leading-[0.95] tracking-tight mb-18 max-w-4xl drop-shadow-[0_12px_40px_rgba(0,0,0,0.35)]">
                         Twoja energia.<br />
                         <span className="bg-gradient-to-r from-[#3385d9] via-[#66b3ff] to-[#3385d9] bg-clip-text text-transparent inline-block pb-2">
                             Pewna przyszłość.

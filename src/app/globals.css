@@ -67,6 +67,25 @@
   .animate-blob-float-reverse {
     animation: float 25s infinite alternate-reverse;
   }
+  @keyframes pop-bounce {
+    0% { 
+      opacity: 0; 
+      transform: translateY(40px); 
+    }
+    60% { 
+      opacity: 1; 
+      transform: translateY(-8px); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  .animate-pop-bounce {
+    animation: pop-bounce 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    animation-delay: 0.25s;
+  }
 }
 
 /* Dark mode override removed to allow manual --background control */
