@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#0f172a",
+                "accent": "#135bec",
+                "journal-bg": "#f8fafc",
+                "deep-blue": "#0a192f",
+                "charcoal": "#334155",
+              },
+              fontFamily: {
+                "display": ["Inter", "sans-serif"]
+              },
+              letterSpacing: {
+                "tighter": "-0.05em",
+                "widest": "0.2em",
+              }
+            },
+          },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-journal-bg text-slate-900 selection:bg-accent selection:text-white antialiased;
+            }
+            h1, h2, h3 {
+                @apply tracking-tighter;
+            }
+        }
+        .glass-card {
+            @apply bg-white/40 backdrop-blur-md border border-white/60 shadow-sm transition-all duration-300;
+        }
+        .glass-card:hover {
+            @apply bg-white/60 border-white/80 shadow-xl shadow-blue-500/5 -translate-y-1;
+        }
+        .orb-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(19, 91, 236, 0.08) 0%, rgba(19, 91, 236, 0) 70%);
+        }
+        .circle-num {
+            @apply w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-sm font-bold text-slate-400;
+        }
+    </style>
+<title>EasyEnergy | Wsparcie Prawne - Ekspercka Ochrona</title>
+</head>
+<body class="font-display">
+<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100">
+<div class="max-w-[1440px] mx-auto px-8 md:px-16 h-20 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<h2 class="text-xl font-extrabold tracking-tighter text-slate-900">EasyEnergy<span class="text-accent">.</span></h2>
+</div>
+<nav class="hidden lg:flex items-center gap-12">
+<a class="text-[11px] uppercase tracking-widest font-bold text-slate-500 hover:text-slate-900 transition-colors" href="#">Katalog usług</a>
+<a class="text-[11px] uppercase tracking-widest font-bold text-slate-900 border-b-2 border-slate-900 pb-1" href="#">Wsparcie prawne</a>
+<a class="text-[11px] uppercase tracking-widest font-bold text-slate-500 hover:text-slate-900 transition-colors" href="#">Kontakt</a>
+</nav>
+<button class="bg-primary text-white px-8 py-3 rounded-full text-[11px] uppercase tracking-widest font-bold hover:bg-accent transition-all">
+            Strefa Eksperta
+        </button>
+</div>
+</header>
+<main class="relative">
+<!-- Atmospheric Gradients -->
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="absolute top-[10%] -left-[10%] w-[600px] h-[600px] orb-gradient rounded-full"></div>
+<div class="absolute bottom-[20%] -right-[10%] w-[800px] h-[800px] orb-gradient rounded-full opacity-60"></div>
+</div>
+<!-- Hero Section -->
+<section class="relative pt-48 pb-24 px-8 md:px-16 z-10">
+<div class="max-w-[1440px] mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<span class="inline-block text-accent font-bold text-[10px] uppercase tracking-[0.4em] mb-4">Legal Insight &amp; Protection</span>
+<h1 class="text-6xl md:text-8xl font-black text-primary leading-[0.9] mb-8">
+                        Wsparcie<br/>
+<span class="text-slate-400">Prawne.</span>
+</h1>
+<p class="text-xl text-slate-600 leading-relaxed font-light max-w-lg">
+                        Profesjonalna obsługa prawna dedykowana sektorowi energetycznemu. Zabezpieczamy Twoje interesy w obliczu dynamicznych zmian rynkowych.
+                    </p>
+</div>
+<div class="aspect-[16/9] bg-white rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/10">
+<img alt="Legal Consultation" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUFVWO-MlRLxNpKW5vOnBDSDaLZM8FWJZtmUWYpHTPBX8KFJSfcq_u_CbAhWTpmCzumMWkrkJsQEzpMfyMViBRUReUZWdqrBe5zwQRyN8W1hh80CjcTkztSBeTZKZR66aXE2Hn5yg7XCydJVkN-eH3VreMnOS0phs1g5l2Ts7QbFZYTuy7WbvNPQxL3Fr05aj0SsyYLAfNHHZtjbAzeMxXUYcGWPsPSKqElAF1ljjSXpTPFXVm0gceiF7rDypbPkt1ZQWO4M3dfRY"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Content Grid (Bento/Staggered Layout) -->
+<section class="relative pb-32 px-8 md:px-16 z-10">
+<div class="max-w-[1440px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Segment 1: Doświadczona Kancelaria (Wide) -->
+<div class="md:col-span-8 group">
+<div class="glass-card p-10 md:p-14 rounded-[40px] h-full flex flex-col justify-between">
+<div class="flex justify-between items-start mb-12">
+<div class="circle-num group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-colors">01</div>
+<span class="material-symbols-outlined text-slate-300 text-4xl">gavel</span>
+</div>
+<div>
+<h3 class="text-3xl font-extrabold text-primary mb-6">Doświadczona Kancelaria</h3>
+<p class="text-lg text-slate-600 leading-relaxed max-w-2xl">
+                                Współpracujemy na stałe z renomowaną kancelarią adwokacką posiadającą szerokie doświadczenie w zakresie obsługi podmiotów i reprezentacji w skomplikowanych sporach w branży energetycznej. Twoje sprawy trafiają w ręce ekspertów.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Segment 2: Kompleksowe wsparcie (Narrow) -->
+<div class="md:col-span-4 group">
+<div class="glass-card p-10 rounded-[40px] h-full flex flex-col justify-between">
+<div class="flex justify-between items-start mb-12">
+<div class="circle-num group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-colors">02</div>
+<span class="material-symbols-outlined text-slate-300 text-4xl">verified_user</span>
+</div>
+<div>
+<h3 class="text-2xl font-extrabold text-primary mb-6">Kompleksowe wsparcie</h3>
+<p class="text-slate-600 leading-relaxed">
+                                Możemy zapewnić wsparcie prawne w zakresie wszelkich przedsięwzięć z naszym udziałem, a także na wypadek sporu z dotychczasowym dostawcą energii lub paliwa gazowego.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Segment 3: Wykładnia umów (Narrow) -->
+<div class="md:col-span-4 group">
+<div class="glass-card p-10 rounded-[40px] h-full flex flex-col justify-between">
+<div class="flex justify-between items-start mb-12">
+<div class="circle-num group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-colors">03</div>
+<span class="material-symbols-outlined text-slate-300 text-4xl">description</span>
+</div>
+<div>
+<h3 class="text-2xl font-extrabold text-primary mb-6">Wykładnia umów</h3>
+<p class="text-slate-600 leading-relaxed">
+                                Pomożemy przy wykładni już zawartych umów na dostawę energii lub paliwa gazowego oraz możliwości ich wypowiedzenia lub rozwiązania – na wypadek zmiany dostawcy.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Segment 4: Dochodzenie roszczeń (Wide) -->
+<div class="md:col-span-8 group">
+<div class="glass-card p-10 md:p-14 rounded-[40px] h-full flex flex-col justify-between">
+<div class="flex justify-between items-start mb-12">
+<div class="circle-num group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-colors">04</div>
+<span class="material-symbols-outlined text-slate-300 text-4xl">account_balance</span>
+</div>
+<div>
+<h3 class="text-3xl font-extrabold text-primary mb-6">Dochodzenie roszczeń</h3>
+<p class="text-lg text-slate-600 leading-relaxed max-w-2xl">
+                                W przypadku nieuprawnionego wypowiedzenia umowy na dostawę energii lub gazu przez spółkę obrotu zapewniamy możliwość oceny zasadności i dochodzenia roszczeń odszkodowawczych przed odpowiednimi organami.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Segment 5: Instalacje PV (Full Width) -->
+<div class="md:col-span-12 group">
+<div class="bg-primary rounded-[40px] p-10 md:p-16 flex flex-col md:flex-row items-center gap-16 overflow-hidden relative">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<img alt="Solar Background" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUEVLYTGF0CTe3_erd1G_quFBGU07_IorAuczmdUnngS3WuXcTxA3k7aEzJCjgKgqT5YV8ZceMuPGwpFXf13ikX35TAO4nF_ZOuxAZrlhTZvSiArxSR-g-wCOmfXge3XbWS7nudjgIuzN0hYNYewdln4KXeEFqH1s_sr3gT1GepAWwpKbR4uqRpl9lHr5SIK2WKP5oG9otixVskm_HUZ1I3ZFfNPhczCdkBioW9MmRICCsKQ2cjnSuk40_ASI0RY-2mMX2p2r4gVE"/>
+</div>
+<div class="relative z-10 md:w-1/2">
+<div class="circle-num border-slate-700 text-slate-400 group-hover:border-accent group-hover:bg-accent group-hover:text-white mb-8 transition-colors">05</div>
+<h3 class="text-3xl md:text-4xl font-black text-white mb-6">Instalacje PV</h3>
+<p class="text-slate-400 text-lg leading-relaxed">
+                                Możemy pomóc na wypadek wadliwie wykonanej instalacji fotowoltaicznej zarówno w zakresie procesu usuwania jej wad, jak i dochodzenia ewentualnych roszczeń odszkodowawczych. Chronimy Twoje inwestycje w zieloną energię.
+                            </p>
+</div>
+<div class="relative z-10 md:w-1/2 flex justify-center">
+<div class="w-full aspect-video rounded-2xl overflow-hidden shadow-2xl">
+<img alt="PV Inspection" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUEVLYTGF0CTe3_erd1G_quFBGU07_IorAuczmdUnngS3WuXcTxA3k7aEzJCjgKgqT5YV8ZceMuPGwpFXf13ikX35TAO4nF_ZOuxAZrlhTZvSiArxSR-g-wCOmfXge3XbWS7nudjgIuzN0hYNYewdln4KXeEFqH1s_sr3gT1GepAWwpKbR4uqRpl9lHr5SIK2WKP5oG9otixVskm_HUZ1I3ZFfNPhczCdkBioW9MmRICCsKQ2cjnSuk40_ASI0RY-2mMX2p2r4gVE"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- High-Contrast CTA Section -->
+<section class="py-32 bg-slate-900 text-white relative overflow-hidden">
+<div class="absolute inset-0 orb-gradient opacity-20"></div>
+<div class="max-w-[1440px] mx-auto px-8 md:px-16 text-center relative z-10">
+<h2 class="text-5xl md:text-7xl font-black mb-12 tracking-tighter">Zabezpiecz swoje interesy teraz.</h2>
+<p class="text-xl md:text-2xl text-slate-400 leading-relaxed font-light mb-16 max-w-2xl mx-auto">
+                Skontaktuj się z naszym zespołem prawnym, aby omówić Twoją sytuację. Pierwsza analiza Twoich potrzeb jest całkowicie darmowa.
+            </p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-8">
+<button class="bg-accent text-white px-12 py-5 rounded-full text-sm uppercase tracking-widest font-bold hover:scale-105 transition-all shadow-xl shadow-accent/20">
+                    Konsultacja Bezpłatna
+                </button>
+<a class="text-white font-bold uppercase tracking-widest text-xs hover:text-accent transition-colors flex items-center gap-3" href="#">
+                    ZOBACZ ARCHIWUM SPRAW <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-primary text-white py-24 px-8 md:px-16 relative z-10">
+<div class="max-w-[1440px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24">
+<div class="md:col-span-5">
+<h2 class="text-2xl font-black tracking-tighter mb-8 italic">EasyEnergy Journal.</h2>
+<p class="text-slate-400 max-w-sm leading-relaxed font-light">
+                    Niezależny punkt widzenia na prawo energetyczne, technologie OZE i bezpieczeństwo procesowe w dobie transformacji klimatycznej.
+                </p>
+</div>
+<div class="md:col-span-2">
+<h4 class="text-[10px] uppercase tracking-[0.3em] font-black text-slate-500 mb-8">Nawigacja</h4>
+<ul class="space-y-4 text-xs font-bold uppercase tracking-widest">
+<li><a class="hover:text-accent transition-colors" href="#">Analizy</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">O nas</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Kontakt</a></li>
+</ul>
+</div>
+<div class="md:col-span-2">
+<h4 class="text-[10px] uppercase tracking-[0.3em] font-black text-slate-500 mb-8">Prawne</h4>
+<ul class="space-y-4 text-xs font-bold uppercase tracking-widest">
+<li><a class="hover:text-accent transition-colors" href="#">Polityka</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Cookies</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Regulamin</a></li>
+</ul>
+</div>
+<div class="md:col-span-3">
+<h4 class="text-[10px] uppercase tracking-[0.3em] font-black text-slate-500 mb-8">Biuletyn</h4>
+<div class="flex border-b border-white/20 pb-2">
+<input class="bg-transparent border-none p-0 text-xs w-full focus:ring-0 placeholder:text-slate-600 font-bold uppercase tracking-widest" placeholder="ADRES E-MAIL" type="email"/>
+<button class="text-xs font-black">DOŁĄCZ</button>
+</div>
+</div>
+</div>
+<div class="pt-12 border-t border-white/10 flex justify-between items-center text-[10px] font-bold uppercase tracking-widest text-slate-600">
+<p>© 2024 EasyEnergy International.</p>
+<p>ISSN 2084-3321</p>
+</div>
+</div>
+</footer>
+</body></html>
