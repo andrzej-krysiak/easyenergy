@@ -13,7 +13,6 @@ export default function NavBar({ isStatic = false }: { isStatic?: boolean }) {
 
     useEffect(() => {
         if (isStatic) {
-            setScrolled(true);
             return;
         }
 

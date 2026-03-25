@@ -48,9 +48,12 @@ const RoadMap = () => {
     ];
 
     return (
-        <section className="bg-slate-50 relative min-h-screen flex flex-col justify-center items-center py-20 lg:py-0 w-full overflow-hidden">
+        <section className="bg-slate-50 relative flex flex-col justify-center items-center py-20 md:py-20 w-full overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(51,133,217,0.08),transparent_42%),radial-gradient(circle_at_80%_20%,rgba(102,179,255,0.08),transparent_45%)]" />
+            </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 relative">
-                <div className="text-center max-w-3xl mx-auto mb-20">
+                <div className="text-center max-w-3xl mx-auto mb-12">
                     <h2 className="text-[#3385d9] font-bold tracking-widest uppercase text-xs md:text-sm mb-4">
                         Nasz Proces
                     </h2>
@@ -62,19 +65,23 @@ const RoadMap = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16 lg:gap-y-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 lg:gap-y-10">
                     {steps.map((step) => (
-                        <div key={step.id} className="flex flex-col gap-6 group">
-                            <div className="flex items-baseline gap-4">
-                                <span className="text-5xl font-bold text-slate-900/15 group-hover:text-[#3385d9]/80 transition-colors duration-500 will-change-auto">
+                        <div
+                            key={step.id}
+                            className="group relative bg-white/80 backdrop-blur-sm border border-slate-200/80 rounded-3xl p-6 sm:p-7 shadow-[0_8px_30px_rgba(2,6,23,0.05)] hover:shadow-[0_18px_55px_rgba(2,6,23,0.12)] hover:border-[#3385d9]/35 transition-all duration-300 hover:-translate-y-1"
+                        >
+                            <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-b from-[#3385d9]/5 via-transparent to-transparent pointer-events-none" />
+                            <div className="relative flex items-start justify-between gap-4 mb-5">
+                                <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 shadow-[0_4px_16px_rgba(2,6,23,0.05)] flex items-center justify-center text-[#3385d9] group-hover:bg-[#3385d9] group-hover:text-white group-hover:shadow-[0_10px_24px_rgba(51,133,217,0.35)] transition-all duration-300">
+                                    <step.icon className="w-5 h-5" />
+                                </div>
+                                <span className="text-3xl font-black tracking-tight text-slate-300 group-hover:text-[#3385d9]/90 transition-colors duration-300">
                                     {step.stepNumber}
                                 </span>
-                                <div className="w-12 h-12 rounded-full bg-white shadow-[0_4px_24px_rgba(0,0,0,0.06)] flex items-center justify-center text-[#3385d9] group-hover:shadow-[0_8px_32px_rgba(51,133,217,0.15)] group-hover:-translate-y-1 transition-all duration-300">
-                                    <step.icon className="w-6 h-6" />
-                                </div>
                             </div>
-                            <div>
-                                <h4 className="text-[21px] font-bold mb-3 text-slate-900 tracking-tight">
+                            <div className="relative">
+                                <h4 className="text-[21px] font-bold mb-3 text-slate-900 tracking-tight group-hover:text-[#1a436d] transition-colors duration-300">
                                     {step.title}
                                 </h4>
                                 <p className="text-slate-600 leading-relaxed font-medium">
