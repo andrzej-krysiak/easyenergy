@@ -1,8 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MdGavel, MdSecurity, MdDescription, MdAccountBalance, MdArrowForward } from 'react-icons/md';
-import { FiChevronRight } from 'react-icons/fi';
+import { MdGavel, MdSecurity, MdDescription, MdAccountBalance } from 'react-icons/md';
+import { FiChevronRight, FiShield, FiTarget, FiZap, FiSettings } from 'react-icons/fi';
+import { IoIosArrowDown } from 'react-icons/io';
+import ScrollReveal from '../../../components/ScrollReveal';
 
 export const metadata = {
     title: 'Wsparcie Prawne | EasyEnergy',
@@ -11,144 +13,182 @@ export const metadata = {
 
 export default function WsparciePrawnePage() {
     return (
-        <main className="font-display text-slate-900 antialiased selection:bg-[#3385d9]/20 bg-slate-50 relative min-h-screen">
-            {/* Atmospheric Gradients */}
-            <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-                <div className="absolute top-[10%] -left-[10%] w-[600px] h-[600px] bg-[#3385d9]/10 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '6s' }}></div>
-                <div className="absolute bottom-[20%] -right-[10%] w-[800px] h-[800px] bg-[#3385d9]/10 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s', animationDelay: '2s' }}></div>
-            </div>
+        <main className="font-display text-slate-900 antialiased selection:bg-[#3385d9]/20 bg-[#f9fafb] relative min-h-screen">
+            {/* Section 1: Hero */}
+            <section className="relative min-h-screen flex flex-col pt-26 pb-12 overflow-hidden bg-gradient-to-b from-white to-[#f9fafb]">
+                <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col relative z-10 w-full">
+                    {/* Breadcrumbs */}
+                    <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm md:text-base font-medium mb-10">
+                        <Link href="/" className="text-slate-500 hover:text-slate-900 transition-colors">
+                            Strona główna
+                        </Link>
+                        <FiChevronRight className="text-slate-400 text-lg" />
+                        <span className="text-[#3385d9]">Wsparcie prawne</span>
+                    </nav>
 
-            {/* Hero Section */}
-            <section className="relative pt-32 pb-24 px-4 sm:px-6 lg:px-11 z-10 max-w-7xl mx-auto">
-                {/* Breadcrumbs */}
-                <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm md:text-base font-medium mb-12">
-                    <Link href="/" className="text-slate-500 hover:text-slate-900 transition-colors">
-                        Strona główna
-                    </Link>
-                    <FiChevronRight className="text-slate-400 text-lg" />
-                    <span className="text-[#3385d9]">Wsparcie prawne</span>
-                </nav>
+                    <div className="relative flex-1 flex flex-col">
+                        {/* Hero Image Frame */}
+                        <div className="relative flex-none rounded-[2.25rem] border border-slate-200/50 shadow-[0_40px_100px_rgba(2,6,23,0.08)] overflow-hidden h-[340px] sm:h-[400px] lg:h-[420px]">
+                            <div
+                                className="absolute inset-0 bg-cover bg-center transition-transform duration-[3s] hover:scale-105"
+                                style={{ backgroundImage: "url('/wsparcie-prawne.png')" }}
+                                aria-hidden="true"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/30 to-slate-950/5" />
+                            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-30" />
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <h1 className="text-6xl md:text-8xl font-black text-slate-900 leading-[1.0] md:leading-[0.9] mb-8 tracking-tighter">
-                            Wsparcie<br/>
-                            <span className="bg-gradient-to-r from-[#3385d9] via-[#4a90e2] to-[#5ba0e6] text-transparent bg-clip-text pr-2">Prawne</span>.
-                        </h1>
-                        <p className="text-xl text-slate-600 leading-relaxed font-light max-w-lg">
-                            Profesjonalna obsługa prawna dedykowana sektorowi energetycznemu. Zabezpieczamy Twoje interesy w obliczu dynamicznych zmian rynkowych.
-                        </p>
+                            <div className="relative h-full flex flex-col justify-end px-7 pb-10 sm:px-10 sm:pb-12 lg:px-16 lg:pb-16 text-white text-pretty">
+                                <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter leading-[1] max-w-3xl drop-shadow-2xl">
+                                    Bezpieczeństwo<br/>
+                                    <span className="bg-gradient-to-r from-[#60a5fa] via-[#93c5fd] to-[#bae6fd] text-transparent bg-clip-text pr-2">
+                                        Prawne Twojej firmy
+                                    </span>
+                                    .
+                                </h1>
+                            </div>
+                        </div>
+
+                        {/* Editorial Description */}
+                        <div className="pt-10 sm:pt-14 pb-12 flex flex-col items-start max-w-3xl">
+                            <p className="text-lg sm:text-xl lg:text-2xl text-slate-700 font-medium leading-[1.6] mb-8 tracking-tight text-pretty text-balance">
+                                Profesjonalna obsługa prawna dedykowana sektorowi energetycznemu. Zabezpieczamy Twoje interesy w obliczu dynamicznych zmian rynkowych.
+                            </p>
+                        </div>
                     </div>
-                    <div className="relative aspect-[16/9] bg-white rounded-3xl overflow-hidden shadow-2xl shadow-[#3385d9]/10">
-                        <Image 
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUFVWO-MlRLxNpKW5vOnBDSDaLZM8FWJZtmUWYpHTPBX8KFJSfcq_u_CbAhWTpmCzumMWkrkJsQEzpMfyMViBRUReUZWdqrBe5zwQRyN8W1hh80CjcTkztSBeTZKZR66aXE2Hn5yg7XCydJVkN-eH3VreMnOS0phs1g5l2Ts7QbFZYTuy7WbvNPQxL3Fr05aj0SsyYLAfNHHZtjbAzeMxXUYcGWPsPSKqElAF1ljjSXpTPFXVm0gceiF7rDypbPkt1ZQWO4M3dfRY" 
-                            alt="Konsultacje prawne EasyEnergy" 
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 1024px) 100vw, 50vw"
-                            priority
-                        />
+                </div>
+
+                {/* Centered Scroll Indicator */}
+                <div className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20 group transition-all duration-500 hover:pb-2 cursor-default">
+                    <span className="text-[10px] sm:text-xs font-black text-slate-500 uppercase tracking-[0.4em] group-hover:text-[#3385d9] transition-all duration-300 ml-[0.4em]">
+                        Poznaj zakres wsparcia
+                    </span>
+                    <div className="relative flex items-center justify-center pt-2">
+                        <div className="absolute inset-0 bg-[#3385d9]/5 rounded-full scale-0 group-hover:scale-150 transition-transform duration-500 blur-xl"></div>
+                        <IoIosArrowDown className="text-3xl sm:text-4xl lg:text-5xl text-[#3385d9]/60 group-hover:text-[#3385d9] animate-bounce transition-all duration-300 relative z-10" />
                     </div>
                 </div>
             </section>
 
-            {/* Content Grid (Bento/Staggered Layout) */}
-            <section className="relative pb-32 px-4 sm:px-6 lg:px-11 z-10 max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-                    {/* Segment 1: Doświadczona Kancelaria (Wide) */}
-                    <div className="md:col-span-8 group">
-                        <div className="bg-white/40 backdrop-blur-md border border-white/60 shadow-sm transition-all duration-300 hover:bg-white/60 hover:border-white/80 hover:shadow-xl hover:shadow-[#3385d9]/10 hover:-translate-y-1 p-10 md:p-14 rounded-[40px] h-full flex flex-col justify-between">
-                            <div className="flex justify-between items-start mb-12">
-                                <div className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-sm font-bold text-slate-400 group-hover:bg-[#3385d9] group-hover:text-white group-hover:border-[#3385d9] transition-colors">01</div>
-                                <MdGavel className="text-slate-300 text-4xl" />
-                            </div>
-                            <div>
-                                <h3 className="text-3xl font-extrabold text-slate-900 mb-6 tracking-tighter">Doświadczona Kancelaria</h3>
-                                <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">
-                                    Współpracujemy na stałe z renomowaną kancelarią adwokacką posiadającą szerokie doświadczenie w zakresie obsługi podmiotów i reprezentacji w skomplikowanych sporach w branży energetycznej. Twoje sprawy trafiają w ręce ekspertów.
-                                </p>
-                            </div>
+            {/* Section 2: Services Section */}
+            <section className="relative py-24 sm:py-32 bg-white overflow-hidden">
+                <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-24 sm:space-y-26">
+                    <ScrollReveal>
+                        <div className="flex flex-col items-center text-center mx-auto max-w-3xl">
+                            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter mb-6 leading-tight text-slate-900">
+                                Jak zapewniamy bezpieczeństwo Twojej firmie?
+                            </h2>
+                            <p className="text-slate-500 text-lg sm:text-xl leading-relaxed max-w-2xl">
+                                Branża energetyczna to skomplikowane regulacje i dynamiczne zmiany. Nasze wsparcie pozwala Ci skupić się na biznesie, podczas gdy my dbamy o Twoje interesy.
+                            </p>
                         </div>
-                    </div>
+                    </ScrollReveal>
 
-                    {/* Segment 2: Kompleksowe wsparcie (Narrow) */}
-                    <div className="md:col-span-4 group">
-                        <div className="bg-white/40 backdrop-blur-md border border-white/60 shadow-sm transition-all duration-300 hover:bg-white/60 hover:border-white/80 hover:shadow-xl hover:shadow-[#3385d9]/10 hover:-translate-y-1 p-10 rounded-[40px] h-full flex flex-col justify-between">
-                            <div className="flex justify-between items-start mb-12">
-                                <div className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-sm font-bold text-slate-400 group-hover:bg-[#3385d9] group-hover:text-white group-hover:border-[#3385d9] transition-colors">02</div>
-                                <MdSecurity className="text-slate-300 text-4xl" />
-                            </div>
-                            <div>
-                                <h3 className="text-2xl font-extrabold text-slate-900 mb-6 tracking-tighter">Kompleksowe wsparcie</h3>
-                                <p className="text-slate-600 leading-relaxed">
-                                    Możemy zapewnić wsparcie prawne w zakresie wszelkich przedsięwzięć z naszym udziałem, a także na wypadek sporu z dotychczasowym dostawcą energii lub paliwa gazowego.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Segment 3: Wykładnia umów (Narrow) */}
-                    <div className="md:col-span-4 group">
-                        <div className="bg-white/40 backdrop-blur-md border border-white/60 shadow-sm transition-all duration-300 hover:bg-white/60 hover:border-white/80 hover:shadow-xl hover:shadow-[#3385d9]/10 hover:-translate-y-1 p-10 rounded-[40px] h-full flex flex-col justify-between">
-                            <div className="flex justify-between items-start mb-12">
-                                <div className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-sm font-bold text-slate-400 group-hover:bg-[#3385d9] group-hover:text-white group-hover:border-[#3385d9] transition-colors">03</div>
-                                <MdDescription className="text-slate-300 text-4xl" />
-                            </div>
-                            <div>
-                                <h3 className="text-2xl font-extrabold text-slate-900 mb-6 tracking-tighter">Wykładnia umów</h3>
-                                <p className="text-slate-600 leading-relaxed">
-                                    Pomożemy przy wykładni już zawartych umów na dostawę energii lub paliwa gazowego oraz możliwości ich wypowiedzenia lub rozwiązania – na wypadek zmiany dostawcy.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Segment 4: Dochodzenie roszczeń (Wide) */}
-                    <div className="md:col-span-8 group">
-                        <div className="bg-white/40 backdrop-blur-md border border-white/60 shadow-sm transition-all duration-300 hover:bg-white/60 hover:border-white/80 hover:shadow-xl hover:shadow-[#3385d9]/10 hover:-translate-y-1 p-10 md:p-14 rounded-[40px] h-full flex flex-col justify-between">
-                            <div className="flex justify-between items-start mb-12">
-                                <div className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-sm font-bold text-slate-400 group-hover:bg-[#3385d9] group-hover:text-white group-hover:border-[#3385d9] transition-colors">04</div>
-                                <MdAccountBalance className="text-slate-300 text-4xl" />
-                            </div>
-                            <div>
-                                <h3 className="text-3xl font-extrabold text-slate-900 mb-6 tracking-tighter">Dochodzenie roszczeń</h3>
-                                <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">
-                                    W przypadku nieuprawnionego wypowiedzenia umowy na dostawę energii lub gazu przez spółkę obrotu zapewniamy możliwość oceny zasadności i dochodzenia roszczeń odszkodowawczych przed odpowiednimi organami.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Segment 5: Instalacje PV (Full Width) */}
-                    <div className="md:col-span-12 group">
-                        <div className="bg-slate-900 rounded-[40px] p-10 md:p-16 flex flex-col md:flex-row items-center gap-16 overflow-hidden relative">
-                            <div className="absolute inset-0 opacity-20 pointer-events-none">
-                                <Image 
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUEVLYTGF0CTe3_erd1G_quFBGU07_IorAuczmdUnngS3WuXcTxA3k7aEzJCjgKgqT5YV8ZceMuPGwpFXf13ikX35TAO4nF_ZOuxAZrlhTZvSiArxSR-g-wCOmfXge3XbWS7nudjgIuzN0hYNYewdln4KXeEFqH1s_sr3gT1GepAWwpKbR4uqRpl9lHr5SIK2WKP5oG9otixVskm_HUZ1I3ZFfNPhczCdkBioW9MmRICCsKQ2cjnSuk40_ASI0RY-2mMX2p2r4gVE"
-                                    alt="Solar Background"
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                            <div className="relative z-10 md:w-1/2">
-                                <div className="w-12 h-12 rounded-full border border-slate-700 flex items-center justify-center text-sm font-bold text-slate-400 group-hover:border-[#3385d9] group-hover:bg-[#3385d9] group-hover:text-white mb-8 transition-colors">05</div>
-                                <h3 className="text-3xl md:text-4xl font-black text-white mb-6 tracking-tighter">Instalacje PV</h3>
-                                <p className="text-slate-400 text-lg leading-relaxed">
-                                    Możemy pomóc na wypadek wadliwie wykonanej instalacji fotowoltaicznej zarówno w zakresie procesu usuwania jej wad, jak i dochodzenia ewentualnych roszczeń odszkodowawczych. Chronimy Twoje inwestycje w zieloną energię.
-                                </p>
-                            </div>
-                            <div className="relative z-10 md:w-1/2 flex justify-center w-full">
-                                <div className="w-full aspect-video rounded-2xl overflow-hidden shadow-2xl relative">
+                    {/* Services Grid - NEW LAYOUT */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                        {/* Featured Service: Doświadczona Kancelaria (Full Width) */}
+                        <ScrollReveal className="lg:col-span-4" delay="delay-0">
+                            <div className="group glass-card rounded-[2.5rem] overflow-hidden border border-slate-200/50 shadow-[0_40px_100px_rgba(15,23,42,0.06)] hover:shadow-[0_60px_120px_rgba(15,23,42,0.1)] transition-all duration-700 relative flex flex-col justify-center min-h-[220px]">
+                                {/* Background Image with mask */}
+                                <div className="absolute inset-0 z-0">
                                     <Image 
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUEVLYTGF0CTe3_erd1G_quFBGU07_IorAuczmdUnngS3WuXcTxA3k7aEzJCjgKgqT5YV8ZceMuPGwpFXf13ikX35TAO4nF_ZOuxAZrlhTZvSiArxSR-g-wCOmfXge3XbWS7nudjgIuzN0hYNYewdln4KXeEFqH1s_sr3gT1GepAWwpKbR4uqRpl9lHr5SIK2WKP5oG9otixVskm_HUZ1I3ZFfNPhczCdkBioW9MmRICCsKQ2cjnSuk40_ASI0RY-2mMX2p2r4gVE"
-                                        alt="Instalacje OZE inspekcja"
+                                        src="/wsparcie-prawne-card.jpg"
+                                        alt="Doświadczona Kancelaria"
                                         fill
-                                        className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                                        className="object-cover object-right md:object-center transition-transform duration-[4s] group-hover:scale-105"
                                     />
+                                    <div className="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent z-10" />
+                                </div>
+
+                                <div className="relative z-20 p-8 lg:p-12 max-w-2xl space-y-4">
+                                    <div className="size-14 bg-[#3385d9]/10 rounded-xl flex items-center justify-center text-[#3385d9] group-hover:scale-110 transition-all duration-500">
+                                        <MdGavel className="text-2xl" />
+                                    </div>
+                                    <h3 className="text-2xl font-black text-slate-900 tracking-tight">
+                                        Doświadczona Kancelaria
+                                    </h3>
+                                    <p className="text-slate-600 font-medium leading-relaxed">
+                                        Współpracujemy na stałe z renomowaną kancelarią adwokacką posiadającą szerokie doświadczenie w zakresie obsługi podmiotów i reprezentacji w skomplikowanych sporach w branży energetycznej. Twoje sprawy trafiają w ręce sprawdzonych ekspertów.
+                                    </p>
+                                </div>
+                            </div>
+                        </ScrollReveal>
+
+                        {/* Service 2: Kompleksowe wsparcie */}
+                        <ScrollReveal delay="delay-100">
+                            <div className="group glass-card rounded-[2rem] p-8 lg:p-10 border border-slate-200/50 shadow-[0_20px_50px_rgba(15,23,42,0.04)] hover:shadow-[0_40px_80px_rgba(15,23,42,0.08)] hover:-translate-y-1 transition-all duration-500 h-full">
+                                <div className="size-14 bg-[#3385d9]/10 rounded-xl flex items-center justify-center text-[#3385d9] mb-8 group-hover:scale-110 transition-transform duration-500">
+                                    <FiShield className="text-2xl" />
+                                </div>
+                                <h3 className="text-2xl font-black text-slate-900 mb-5 tracking-tight">Kompleksowe wsparcie</h3>
+                                <p className="text-slate-600 leading-relaxed">
+                                    Wsparcie prawne w zakresie wszelkich przedsięwzięć oraz w sytuacjach spornych z dotychczasowym dostawcą energii.
+                                </p>
+                            </div>
+                        </ScrollReveal>
+
+                        {/* Service 3: Wykładnia umów */}
+                        <ScrollReveal delay="delay-200">
+                            <div className="group glass-card rounded-[2rem] p-8 lg:p-10 border border-slate-200/50 shadow-[0_20px_50px_rgba(15,23,42,0.04)] hover:shadow-[0_40px_80px_rgba(15,23,42,0.08)] hover:-translate-y-1 transition-all duration-500 h-full">
+                                <div className="size-14 bg-[#3385d9]/10 rounded-xl flex items-center justify-center text-[#3385d9] mb-8 group-hover:scale-110 transition-transform duration-500">
+                                    <MdDescription className="text-2xl" />
+                                </div>
+                                <h3 className="text-2xl font-black text-slate-900 mb-5 tracking-tight">Wykładnia umów</h3>
+                                <p className="text-slate-600 leading-relaxed">
+                                    Pomoc przy interpretacji zawartych umów oraz ich wypowiedzeniu w przypadku planowanej zmiany dostawcy.
+                                </p>
+                            </div>
+                        </ScrollReveal>
+
+                        {/* Service 4: Dochodzenie roszczeń */}
+                        <ScrollReveal delay="delay-300">
+                            <div className="group glass-card rounded-[2rem] p-8 lg:p-10 border border-slate-200/50 shadow-[0_20px_50px_rgba(15,23,42,0.04)] hover:shadow-[0_40px_80px_rgba(15,23,42,0.08)] hover:-translate-y-1 transition-all duration-500 h-full">
+                                <div className="size-14 bg-[#3385d9]/10 rounded-xl flex items-center justify-center text-[#3385d9] mb-8 group-hover:scale-110 transition-transform duration-500">
+                                    <MdAccountBalance className="text-2xl" />
+                                </div>
+                                <h3 className="text-2xl font-black text-slate-900 mb-5 tracking-tight">Dochodzenie roszczeń</h3>
+                                <p className="text-slate-600 leading-relaxed">
+                                    Ocena zasadności i dochodzenie roszczeń odszkodowawczych w sprawach nieuprawnionego wypowiedzenia umów.
+                                </p>
+                            </div>
+                        </ScrollReveal>
+
+                        {/* Service 5: Instalacje PV (Now as small card) */}
+                        <ScrollReveal delay="delay-400">
+                            <div className="group glass-card rounded-[2rem] p-8 lg:p-10 border border-slate-200/50 shadow-[0_20px_50px_rgba(15,23,42,0.04)] hover:shadow-[0_40px_80px_rgba(15,23,42,0.08)] hover:-translate-y-1 transition-all duration-500 h-full">
+                                <div className="size-14 bg-[#3385d9]/10 rounded-xl flex items-center justify-center text-[#3385d9] mb-8 group-hover:scale-110 transition-transform duration-500">
+                                    <FiZap className="text-2xl" />
+                                </div>
+                                <h3 className="text-2xl font-black text-slate-900 mb-5 tracking-tight">Instalacje PV</h3>
+                                <p className="text-slate-600 leading-relaxed">
+                                    Wsparcie w zakresie usuwania wadliwych instalacji oraz dochodzenia ewentualnych roszczeń odszkodowawczych.
+                                </p>
+                            </div>
+                        </ScrollReveal>
+                    </div>
+
+                    {/* Integrated Contact CTA */}
+                    <ScrollReveal>
+                        <div className="relative overflow-hidden bg-[#3385d9] rounded-2xl p-8 md:p-12 shadow-xl shadow-blue-900/10">
+                            <div className="absolute inset-0 opacity-10 pointer-events-none">
+                                <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+                                    <path d="M0 100 C 20 0 50 0 100 100 Z" fill="white" />
+                                </svg>
+                            </div>
+                            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                                <div className="max-w-2xl text-center md:text-left">
+                                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">Masz pytania o kwestie prawne?</h2>
+                                    <p className="text-blue-50 text-lg leading-relaxed">
+                                        Skontaktuj się z nami, a nasi doradcy pomogą Ci zrozumieć proces i wskażą optymalną ścieżkę postępowania dla Twojej firmy.
+                                    </p>
+                                </div>
+                                <div className="flex-shrink-0">
+                                    <Link href="/kontakt" className="inline-block bg-white text-[#3385d9] hover:bg-slate-100 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-xl shadow-black/10 text-center hover:scale-105 active:scale-95">
+                                        Skontaktuj się z nami
+                                    </Link>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </ScrollReveal>
                 </div>
             </section>
         </main>

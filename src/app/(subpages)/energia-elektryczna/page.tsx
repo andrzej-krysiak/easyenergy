@@ -40,7 +40,7 @@ export default function EnergiaElektrycznaPage() {
                             <div className="relative h-full flex flex-col justify-end px-7 pb-10 sm:px-10 sm:pb-12 lg:px-16 lg:pb-16 text-white">
                                 <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter leading-[1] max-w-3xl drop-shadow-2xl">
                                     Energia, która napędza{" "}
-                                    <span className="bg-gradient-to-r from-[#93c5fd] via-[#66b3ff] to-white text-transparent bg-clip-text pr-2">
+                                    <span className="bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 text-transparent bg-clip-text pr-2">
                                         Twoją przyszłość
                                     </span>
                                     .

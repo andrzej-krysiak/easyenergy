@@ -38,8 +38,8 @@ export default function PaliwoGazowePage() {
 
                             <div className="relative h-full flex flex-col justify-end px-7 pb-10 sm:px-10 sm:pb-12 lg:px-16 lg:pb-16 text-white">
                                 <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter leading-[1] max-w-3xl drop-shadow-2xl">
-                                    Gaz, który napędza{" "}
-                                    <span className="bg-gradient-to-r from-[#93c5fd] via-[#66b3ff] to-white text-transparent bg-clip-text pr-2">
+                                    Gaz, który napędza{" "} <br/>
+                                    <span className="bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 text-transparent bg-clip-text pr-2">
                                         Twój biznes
                                     </span>
                                     .
@@ -89,7 +89,7 @@ export default function PaliwoGazowePage() {
                 </div>
 
                 <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-24 sm:space-y-26">
-                    <ScrollReveal animation="animate-fade-in-up">
+                    <ScrollReveal>
                         <div className="flex flex-col items-center text-center mx-auto max-w-3xl">
                             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter mb-6 leading-tight text-slate-900">
                                 Jak dobrać model zakupu gazu?
