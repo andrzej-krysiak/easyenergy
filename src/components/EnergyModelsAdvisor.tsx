@@ -3,78 +3,40 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FiCheckCircle, FiShield, FiActivity, FiTarget, FiLayers, FiInfo, FiChevronRight } from 'react-icons/fi';
+import { FiCheckCircle, FiInfo, FiChevronRight } from 'react-icons/fi';
+import { allModels } from './energyModelsData';
 
-const energyModels = [
-    {
-        id: 'spot-cap',
-        goalLabel: 'Bezpieczny kompromis',
-        modelName: 'Spot z Cap',
-        badge: 'Rekomendowane dla większości firm',
-        description: 'Łączymy zakupy po dynamicznych cenach rynkowych RDN z ustaloną z góry maksymalną granicą ceny (Cap). Zyskujesz, gdy na giełdzie jest tanio, ale jesteś chroniony przed ekstremami.',
-        whyThis: 'To doskonały kompromis: korzystasz z rynkowych spadków na co dzień, zachowując "spadochron" ochronny na wypadek nagłego kryzysu giełdowego.',
-        benefits: [
-            'Twój budżet chroni gwarantowana maksymalna cena zakupu',
-            'Gdy rynek spada, płacisz dokładnie tyle, ile wynoszą rynkowe minima'
-        ],
-        icon: <FiTarget className="text-3xl" />,
-        image: '/spot-cap.png',
-        color: 'text-[#3385d9]',
-        bgColor: 'bg-[#3385d9]/10',
-    },
-    {
-        id: 'stala-cena',
-        goalLabel: 'Przewidywalne koszty',
-        modelName: 'Stała cena',
-        badge: 'Najwyższe bezpieczeństwo',
-        description: 'Gwarancja stałej ceny przez cały okres umowy. Zabezpiecza przed wzrostem rynkowych stawek. Możemy zawierać umowy od jednego roku do kilkunastu lat (nawet do 2035 r.).',
-        whyThis: 'Idealne rozwiązanie, jeśli zależy Ci na sztywnym i absolutnie przewidywalnym budżecie bez żadnych niespodzianek na fakturze w ujęciu wieloletnim.',
-        benefits: [
-            'Pełna przewidywalność kosztów w długim okresie',
-            'Całkowita odporność na wahania i gwałtowne skoki cen giełdowych'
-        ],
-        icon: <FiShield className="text-3xl" />,
-        image: '/stala-cena.png',
-        color: 'text-[#3385d9]',
-        bgColor: 'bg-[#3385d9]/10',
-    },
-    {
-        id: 'spot',
-        goalLabel: 'Niższe ceny (akceptuję zmienność)',
-        modelName: 'Spot',
-        badge: 'Największy potencjał oszczędności',
-        description: 'W tym modelu zakupy energii rozliczane są w oparciu o bieżące notowania na Rynku Dnia Następnego. Ceny energii zmieniają się w każdej godzinie doby, każdego dnia w roku.',
-        whyThis: 'Wybierz ten model, jeśli jesteś w stanie zaakceptować ryzyko giełdowe w zamian za możliwość znacznych oszczędności w tzw. "dolinach cenowych".',
-        benefits: [
-            'Rozliczenia bezpośrednio według bieżących wahań stawek rynkowych',
-            'Możliwość dynamicznej optymalizacji zużycia (np. gdy prąd w nocy jest tani)'
-        ],
-        icon: <FiActivity className="text-3xl" />,
-        image: '/spot.png',
-        color: 'text-[#3385d9]',
-        bgColor: 'bg-[#3385d9]/10',
-    },
-    {
-        id: 'transze',
-        goalLabel: 'Pełna kontrola i strategia',
-        modelName: 'Transze',
-        badge: 'Dla analityków i strategów',
-        description: 'Sam decydujesz, kiedy i jaką partię (transzę) energii zakontraktujesz po stałej cenie na przyszłość. Niezakontraktowana część jest automatycznie rozliczana z bieżącej giełdy (Spot).',
-        whyThis: 'Skierowane do firm z aktywną flotą zakupową, pragnących uśrednić cenę, świadomie łapiąc różne okazje rynkowe na przestrzeni kwartałów lub lat.',
-        benefits: [
-            'Pełna swoboda w kontraktowaniu ułamków wolumenu energii (na wybrane miesiące)',
-            'Możliwość precyzyjnego budowania portfela energii według własnej analizy'
-        ],
-        icon: <FiLayers className="text-3xl" />,
-        image: '/transze.png',
-        color: 'text-[#3385d9]',
-        bgColor: 'bg-[#3385d9]/10',
-    }
-];
+export interface EnergyModel {
+    id: string;
+    goalLabel: string;
+    modelName: string;
+    badge: string;
+    description: string;
+    whyThis: string;
+    benefits: string[];
+    icon: React.ReactNode;
+    image: string;
+    color: string;
+    bgColor: string;
+}
 
-export default function EnergyModelsAdvisor() {
-    const [activeId, setActiveId] = useState(energyModels[0].id); // Start with Spot z Cap
-    const activeModel = energyModels.find((m) => m.id === activeId) || energyModels[0];
+interface EnergyModelsAdvisorProps {
+    /** IDs of models to display. If omitted, all models are shown. */
+    modelIds?: string[];
+    ctaHref?: string;
+    ctaLabel?: string;
+}
+
+export default function EnergyModelsAdvisor({ 
+    modelIds,
+    ctaHref = '/kontakt',
+    ctaLabel,
+}: EnergyModelsAdvisorProps) {
+    const models = modelIds
+        ? allModels.filter((m) => modelIds.includes(m.id))
+        : allModels;
+    const [activeId, setActiveId] = useState(models[0].id);
+    const activeModel = models.find((m) => m.id === activeId) || models[0];
 
     return (
         <div className="w-full relative z-10 font-display">
@@ -85,7 +47,7 @@ export default function EnergyModelsAdvisor() {
                 <div className="absolute right-0 inset-y-0 w-8 bg-gradient-to-l from-[var(--background)] to-transparent z-10 pointer-events-none sm:hidden" />
                 
                 <div className="flex overflow-x-auto hide-scrollbar sm:flex-wrap justify-start sm:justify-center gap-2 sm:gap-4 pt-4 pb-8 scroll-smooth snap-x snap-mandatory">
-                    {energyModels.map((model) => {
+                    {models.map((model) => {
                         const isActive = activeId === model.id;
                         return (
                             <button
@@ -159,8 +121,8 @@ export default function EnergyModelsAdvisor() {
 
                         {/* CTA */}
                         <div className="pt-3 sm:pt-4">
-                            <Link href="/kontakt" className="group inline-flex w-full sm:w-auto items-center justify-center bg-[#3385d9] text-white px-8 py-3.5 sm:py-4 rounded-xl font-bold text-[15px] sm:text-base hover:bg-[#286bb5] hover:shadow-[0_15px_30px_rgba(51,133,217,0.3)] hover:-translate-y-1 transition-all duration-300">
-                                Wybierz {activeModel.modelName}
+                            <Link href={ctaHref} className="group inline-flex w-full sm:w-auto items-center justify-center bg-[#3385d9] text-white px-8 py-3.5 sm:py-4 rounded-xl font-bold text-[15px] sm:text-base hover:bg-[#286bb5] hover:shadow-[0_15px_30px_rgba(51,133,217,0.3)] hover:-translate-y-1 transition-all duration-300">
+                                {ctaLabel || `Wybierz ${activeModel.modelName}`}
                                 <FiChevronRight className="ml-2 text-xl group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </div>

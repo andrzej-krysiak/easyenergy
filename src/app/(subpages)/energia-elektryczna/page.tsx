@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FiCheckCircle, FiShield, FiActivity, FiTarget, FiLayers, FiChevronRight } from 'react-icons/fi';
+import { FiChevronRight } from 'react-icons/fi';
 import { IoIosArrowDown } from 'react-icons/io';
 import ScrollReveal from '../../../components/ScrollReveal';
 import EnergyModelsAdvisor from '../../../components/EnergyModelsAdvisor';
