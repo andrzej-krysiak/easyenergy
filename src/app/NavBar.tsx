@@ -35,9 +35,9 @@ export default function NavBar({ isStatic = false }: { isStatic?: boolean }) {
                 isFloating ? "top-3 sm:top-4" : "top-0"
             }`}
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1620px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div
-                    className={`flex justify-between items-center h-20 px-4 sm:px-6 lg:px-8 border transition-[background-color,border-color,box-shadow,border-radius,backdrop-filter] duration-300 ${
+                    className={`h-[72px] border transition-[background-color,border-color,box-shadow,border-radius,backdrop-filter] duration-300 ${
                         scrolled
                             ? "bg-white/78 backdrop-blur-xl supports-[backdrop-filter]:bg-white/70 shadow-[0_8px_28px_rgba(15,23,42,0.12)] border-white/55 rounded-full"
                             : isStatic
@@ -45,36 +45,38 @@ export default function NavBar({ isStatic = false }: { isStatic?: boolean }) {
                                 : "bg-transparent border-transparent shadow-none rounded-none backdrop-blur-0"
                     }`}
                 >
-                    {/* Logo po lewej stronie */}
-                    <div className="flex-shrink-0 flex items-center">
-                        <Link href="/" className="flex items-center">
-                            <Image
-                                src={useSolidVariant ? "/easyenergy-logo.png" : "/easyenergy-logo-light.png"}
-                                alt="EasyEnergy Logo"
-                                width={200}
-                                height={60}
-                                className="w-auto h-12 object-contain"
-                                priority
-                            />
-                        </Link>
+                    <div className="max-w-screen-2xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+                        {/* Logo po lewej stronie */}
+                        <div className="flex-shrink-0 flex items-center">
+                            <Link href="/" className="flex items-center">
+                                <Image
+                                    src={useSolidVariant ? "/easyenergy-logo.png" : "/easyenergy-logo-light.png"}
+                                    alt="EasyEnergy Logo"
+                                    width={144}
+                                    height={36}
+                                    className="w-auto h-8 sm:h-9 object-contain"
+                                    priority
+                                />
+                            </Link>
+                        </div>
+
+                        {/* Desktop Links - Server Side Rendered */}
+                        <ul className="hidden md:flex items-center space-x-8">
+                            {links.map((link) => (
+                                <li key={link.href}>
+                                    <Link
+                                        href={link.href}
+                                        className={`${linkStyles} hover:text-[#3385d9] font-medium transition-colors duration-300`}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+
+                        {/* Mobile Menu - Client Side Rendered */}
+                        <MobileMenu links={links} />
                     </div>
-
-                    {/* Desktop Links - Server Side Rendered */}
-                    <ul className="hidden md:flex items-center space-x-8">
-                        {links.map((link) => (
-                            <li key={link.href}>
-                                <Link
-                                    href={link.href}
-                                    className={`${linkStyles} hover:text-[#3385d9] font-medium transition-colors duration-300`}
-                                >
-                                    {link.name}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-
-                    {/* Mobile Menu - Client Side Rendered */}
-                    <MobileMenu links={links} />
                 </div>
             </div>
         </nav>

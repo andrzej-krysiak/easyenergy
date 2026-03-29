@@ -10,13 +10,12 @@ interface ScrollRevealProps {
     animation?: string;
     threshold?: number;
     once?: boolean;
+    offset?: number; // Distance from viewport edge in pixels
 }
 
 /**
  * ScrollReveal component that uses Intersection Observer to trigger 
  * Tailwind-based animations when an element enters the viewport.
- * 
- * Uses 'animate-in' classes (assuming tailwindcss-animate or custom equivalents are available).
  */
 export default function ScrollReveal({
     children,
@@ -26,6 +25,7 @@ export default function ScrollReveal({
     animation = "animate-pop-bounce",
     threshold = 0.05,
     once = true,
+    offset = 60, // Trigger 40px after entering viewport by default
 }: ScrollRevealProps) {
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
@@ -42,7 +42,10 @@ export default function ScrollReveal({
                     setIsVisible(false);
                 }
             },
-            { threshold }
+            { 
+                threshold,
+                rootMargin: `0px 0px -${offset}px 0px` // Negative bottom margin triggers it later
+            }
         );
 
         const currentRef = ref.current;
@@ -56,16 +59,17 @@ export default function ScrollReveal({
             }
             observer.disconnect();
         };
-    }, [once, threshold]);
+    }, [once, threshold, offset]);
 
     return (
         <div
             ref={ref}
             className={`
                 ${className}
+                transition-all
                 ${isVisible 
-                    ? `${animation} ${delay} ${duration} fill-mode-both` 
-                    : "opacity-0 pointer-events-none"
+                    ? `${animation} ${delay} ${duration} visible fill-mode-both` 
+                    : "invisible pointer-events-none"
                 }
             `}
         >

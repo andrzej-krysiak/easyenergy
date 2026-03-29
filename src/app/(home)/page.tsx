@@ -7,12 +7,12 @@ export default function Home() {
         <main className="relative overflow-hidden selection:bg-[#3385d9]/20 font-display transition-all duration-500 bg-slate-50">
 
             {/* Centralny, w pełni skupiony na typografii i konwersji Hero - ZERO układu "zdjęcie po prawej" */}
-            <section className="relative min-h-[calc(100svh-80px)] flex flex-col justify-between items-center pt-28 sm:pt-32 pb-16 z-30">
+            <section className="relative min-h-screen flex flex-col justify-between items-center pt-28 sm:pt-32 pb-16 z-30">
                 {/* Cinematic background */}
                 <div className="absolute inset-0 z-0">
                     <div
                         className="absolute inset-0 bg-cover bg-center"
-                        style={{ backgroundImage: "url('/hero-background.png?v=20260304')" }}
+                        style={{ backgroundImage: "url('/home-hero.webp')" }}
                         aria-hidden="true"
                     />
                     {/* Darken for readability */}
