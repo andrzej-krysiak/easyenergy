@@ -7,7 +7,7 @@ export default function Home() {
         <main className="relative overflow-hidden selection:bg-[#3385d9]/20 font-display transition-all duration-500 bg-slate-50">
 
             {/* Centralny, w pełni skupiony na typografii i konwersji Hero - ZERO układu "zdjęcie po prawej" */}
-            <section className="relative min-h-screen flex flex-col justify-between items-center pt-28 sm:pt-32 pb-16 z-30">
+            <section className="relative min-h-[100dvh] flex flex-col justify-between items-center pt-20 lg:pt-24 2xl:pt-32 pb-12 sm:pb-16 z-30">
                 {/* Cinematic background */}
                 <div className="absolute inset-0 z-0">
                     <div
@@ -27,11 +27,11 @@ export default function Home() {
                     <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-slate-950/70 to-transparent" />
                 </div>
 
-                <div className="max-w-5xl mx-auto px-4 sm:px-6 w-full text-center flex flex-col items-center">
+                <div className="max-w-3xl lg:max-w-4xl 2xl:max-w-5xl mx-auto px-4 sm:px-6 w-full text-center flex flex-col items-center">
                     
 
                     {/* Główny Nagłówek */}
-                    <h1 className="text-4xl sm:text-5xl md:text-[5rem] lg:text-[6.5rem] font-black text-white leading-[1.0] md:leading-[0.95] tracking-tight mb-18 max-w-4xl drop-shadow-[0_12px_40px_rgba(0,0,0,0.35)]">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] xl:text-[4.8rem] 2xl:text-[6.5rem] font-black text-white leading-[1.0] md:leading-[0.95] tracking-tight mb-8 lg:mb-10 xl:mb-12 2xl:mb-18 max-w-4xl drop-shadow-[0_12px_40px_rgba(0,0,0,0.35)]">
                         Twoja energia.<br />
                         <span className="bg-gradient-to-r from-[#3385d9] via-[#66b3ff] to-[#3385d9] bg-clip-text text-transparent inline-block pb-2">
                             Pewna przyszłość.
@@ -39,24 +39,24 @@ export default function Home() {
                     </h1>
 
                     {/* Podtytuł */}
-                    <p className="text-lg sm:text-xl lg:text-2xl text-slate-200/95 leading-relaxed max-w-2xl mx-auto mb-8 drop-shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+                    <p className="text-sm sm:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-slate-200/95 leading-relaxed max-w-2xl mx-auto mb-8 drop-shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
                         Osiągaj wyższe zyski z optymalizacji kosztów gazu i prądu. Kompleksowe doradztwo rynkowe połączone z pełnym wsparciem prawno-procesowym.
                     </p>
 
                     {/* Przyciski Akcji */}
-                    <div className="flex flex-col sm:flex-row gap-5 items-center justify-center w-full sm:w-auto mb-10 relative">
+                    <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 items-center justify-center w-full sm:w-auto mb-10 relative">
                         {/* Subtelny glow za pierwszym guzikiem */}
                         <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-[#66b3ff]/25 blur-[55px] rounded-full z-0 hidden sm:block"></div>
                         
                         <Link
                             href="/kontakt"
-                            className="inline-flex justify-center items-center w-full sm:w-auto px-10 py-5 text-[17px] sm:text-lg font-bold text-white bg-[#3385d9] rounded-2xl hover:bg-[#286bb3] shadow-[0_4px_30px_rgba(51,133,217,0.4)] hover:shadow-[0_8px_40px_rgba(51,133,217,0.5)] hover:-translate-y-1 transition-all duration-300 relative z-10"
+                            className="inline-flex justify-center items-center w-full sm:w-auto px-6 py-3.5 lg:px-8 lg:py-4 2xl:px-10 2xl:py-5 text-sm sm:text-base 2xl:text-lg font-bold text-white bg-[#3385d9] rounded-2xl hover:bg-[#286bb3] shadow-[0_4px_30px_rgba(51,133,217,0.4)] hover:shadow-[0_8px_40px_rgba(51,133,217,0.5)] hover:-translate-y-1 transition-all duration-300 relative z-10"
                         >
                             Rozpocznij współpracę
                         </Link>
                         <Link
                             href="/energia-elektryczna"
-                            className="inline-flex justify-center items-center w-full sm:w-auto px-10 py-5 text-[17px] sm:text-lg font-bold text-white bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl hover:bg-white/15 hover:border-white/30 shadow-[0_8px_30px_rgba(0,0,0,0.20)] transition-all duration-300 group relative z-10"
+                            className="inline-flex justify-center items-center w-full sm:w-auto px-6 py-3.5 lg:px-8 lg:py-4 2xl:px-10 2xl:py-5 text-sm sm:text-base 2xl:text-lg font-bold text-white bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl hover:bg-white/15 hover:border-white/30 shadow-[0_8px_30px_rgba(0,0,0,0.20)] transition-all duration-300 group relative z-10"
                         >
                             Nasza oferta
                             <FiArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1.5 transition-transform" />
@@ -66,31 +66,31 @@ export default function Home() {
                 </div>
 
                 {/* Piękny szklany pasek z metrykami zaufania i uderzającymi argumentami (zamiast standardowego rzędu ikon) */}
-                <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 relative z-20">
-                     <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-6 sm:p-8 rounded-[2rem] shadow-[0_18px_70px_rgba(0,0,0,0.35)] flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-white/15">
+                <div className="w-full max-w-3xl lg:max-w-4xl 2xl:max-w-5xl mx-auto px-4 sm:px-6 relative z-20">
+                     <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-4 lg:p-5 xl:p-6 2xl:p-8 rounded-[2rem] shadow-[0_18px_70px_rgba(0,0,0,0.35)] flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-white/15">
                          
                          <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left px-4 group">
-                             <div className="w-12 h-12 bg-white/10 text-[#66b3ff] rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-white/15">
-                                 <FiTrendingDown className="w-6 h-6" />
+                             <div className="size-9 lg:size-10 xl:size-11 2xl:size-12 bg-white/10 text-[#66b3ff] rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-white/15">
+                                 <FiTrendingDown className="w-4 h-4 lg:w-5 lg:h-5 2xl:w-6 2xl:h-6" />
                              </div>
-                             <h4 className="text-white font-bold mb-1">Optymalizacja KFE</h4>
-                             <p className="text-white/70 text-sm font-medium">Zakupy w najniższych możliwych dołkach giełdowych.</p>
+                             <h4 className="text-white font-bold mb-1 text-xs lg:text-sm 2xl:text-base">Optymalizacja KFE</h4>
+                             <p className="text-white/70 text-[10px] lg:text-xs 2xl:text-sm font-medium">Zakupy w najniższych możliwych dołkach giełdowych.</p>
                          </div>
 
-                         <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left px-4 pt-6 md:pt-0 group">
-                             <div className="w-12 h-12 bg-white/10 text-[#66b3ff] rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-white/15">
-                                 <FiShield className="w-6 h-6" />
+                         <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left px-4 pt-4 md:pt-0 group">
+                             <div className="size-9 lg:size-10 xl:size-11 2xl:size-12 bg-white/10 text-[#66b3ff] rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-white/15">
+                                 <FiShield className="w-4 h-4 lg:w-5 lg:h-5 2xl:w-6 2xl:h-6" />
                              </div>
-                             <h4 className="text-white font-bold mb-1">Bezpieczeństwo Prawne</h4>
-                             <p className="text-white/70 text-sm font-medium">Brak ukrytych opłat i zero niekorzystnych zapisów umownych.</p>
+                             <h4 className="text-white font-bold mb-1 text-xs lg:text-sm 2xl:text-base">Bezpieczeństwo Prawne</h4>
+                             <p className="text-white/70 text-[10px] lg:text-xs 2xl:text-sm font-medium">Brak ukrytych opłat i zero niekorzystnych zapisów umownych.</p>
                          </div>
 
-                         <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left px-4 pt-6 md:pt-0 group">
-                             <div className="w-12 h-12 bg-white/10 text-[#66b3ff] rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-white/15">
-                                 <FiCheckCircle className="w-6 h-6" />
+                         <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left px-4 pt-4 md:pt-0 group">
+                             <div className="size-9 lg:size-10 xl:size-11 2xl:size-12 bg-white/10 text-[#66b3ff] rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-white/15">
+                                 <FiCheckCircle className="w-4 h-4 lg:w-5 lg:h-5 2xl:w-6 2xl:h-6" />
                              </div>
-                             <h4 className="text-white font-bold mb-1">Gwarancja Serwisu</h4>
-                             <p className="text-white/70 text-sm font-medium">Całodobowy kontakt i wsparcie eksperckie w cenie procesu.</p>
+                             <h4 className="text-white font-bold mb-1 text-xs lg:text-sm 2xl:text-base">Gwarancja Serwisu</h4>
+                             <p className="text-white/70 text-[10px] lg:text-xs 2xl:text-sm font-medium">Całodobowy kontakt i wsparcie eksperckie w cenie procesu.</p>
                          </div>
 
                      </div>

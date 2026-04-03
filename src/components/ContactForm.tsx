@@ -74,9 +74,9 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="glass-card rounded-2xl p-8 lg:p-12 relative z-10 w-full h-full animate-in fade-in slide-in-from-bottom-5 duration-700">
-      <form onSubmit={handleSubmit} className="h-full flex flex-col space-y-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="relative z-10 w-full h-full">
+      <form onSubmit={handleSubmit} className="h-full flex flex-col space-y-4 2xl:space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 2xl:gap-8">
           <div className="space-y-3">
             <label className="block text-sm font-semibold text-slate-900 mb-1 ml-1">Nazwa Twojej firmy</label>
             <input
@@ -85,7 +85,7 @@ const ContactForm = () => {
               value={formData.companyName}
               onChange={handleChange}
               placeholder="np. Eco Solutions Sp. z o.o."
-              className={`block w-full rounded-xl border-slate-200/60 bg-white/50 px-5 py-4 text-slate-900 placeholder-slate-400 transition-all form-input-focus border ${errors.companyName ? 'border-red-400 bg-red-50/50' : ''} outline-none`}
+              className={`block w-full rounded-lg 2xl:rounded-xl border-slate-200/60 bg-white/50 px-4 py-3 2xl:px-5 2xl:py-4 text-sm 2xl:text-base text-slate-900 placeholder-slate-400 transition-all form-input-focus border ${errors.companyName ? 'border-red-400 bg-red-50/50' : ''} outline-none`}
             />
             {errors.companyName && <p className="text-red-500 text-xs mt-1 ml-1">{errors.companyName}</p>}
           </div>
@@ -97,7 +97,7 @@ const ContactForm = () => {
               value={formData.phone}
               onChange={handleChange}
               placeholder="+48 123 456 789"
-              className={`block w-full rounded-xl border-slate-200/60 bg-white/50 px-5 py-4 text-slate-900 placeholder-slate-400 transition-all form-input-focus border ${errors.phone ? 'border-red-400 bg-red-50/50' : ''} outline-none`}
+              className={`block w-full rounded-lg 2xl:rounded-xl border-slate-200/60 bg-white/50 px-4 py-3 2xl:px-5 2xl:py-4 text-sm 2xl:text-base text-slate-900 placeholder-slate-400 transition-all form-input-focus border ${errors.phone ? 'border-red-400 bg-red-50/50' : ''} outline-none`}
             />
             {errors.phone && <p className="text-red-500 text-xs mt-1 ml-1">{errors.phone}</p>}
           </div>
@@ -111,7 +111,7 @@ const ContactForm = () => {
             value={formData.email}
             onChange={handleChange}
             placeholder="kontakt@twojafirma.pl"
-            className={`block w-full rounded-xl border-slate-200/60 bg-white/50 px-5 py-4 text-slate-900 placeholder-slate-400 transition-all form-input-focus border ${errors.email ? 'border-red-400 bg-red-50/50' : ''} outline-none`}
+            className={`block w-full rounded-lg 2xl:rounded-xl border-slate-200/60 bg-white/50 px-4 py-3 2xl:px-5 2xl:py-4 text-sm 2xl:text-base text-slate-900 placeholder-slate-400 transition-all form-input-focus border ${errors.email ? 'border-red-400 bg-red-50/50' : ''} outline-none`}
           />
           {errors.email && <p className="text-red-500 text-xs mt-1 ml-1">{errors.email}</p>}
         </div>
@@ -123,7 +123,7 @@ const ContactForm = () => {
             value={formData.message}
             onChange={handleChange}
             placeholder="W czym możemy Ci pomóc?"
-            className={`block w-full flex-grow rounded-xl border-slate-200/60 bg-white/50 px-5 py-4 text-slate-900 placeholder-slate-400 transition-all form-input-focus border ${errors.message ? 'border-red-400 bg-red-50/50' : ''} outline-none resize-none min-h-[150px]`}
+            className={`block w-full flex-grow rounded-lg 2xl:rounded-xl border-slate-200/60 bg-white/50 px-4 py-3 2xl:px-5 2xl:py-4 text-sm 2xl:text-base text-slate-900 placeholder-slate-400 transition-all form-input-focus border ${errors.message ? 'border-red-400 bg-red-50/50' : ''} outline-none resize-none min-h-[90px] lg:min-h-[110px] 2xl:min-h-[150px]`}
           />
           {errors.message && <p className="text-red-500 text-xs mt-1 ml-1">{errors.message}</p>}
         </div>
@@ -132,7 +132,7 @@ const ContactForm = () => {
           <button
             type="submit"
             disabled={status.type === 'loading'}
-            className="w-full sm:w-auto min-w-[220px] flex items-center justify-center rounded-full bg-primary-contact px-10 py-5 text-base font-bold text-white shadow-xl shadow-primary-contact/30 hover:bg-primary-contact/90 hover:translate-y-[-2px] hover:shadow-2xl transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+            className="w-full sm:w-auto min-w-[220px] flex items-center justify-center rounded-full bg-primary-contact px-8 py-3.5 2xl:px-10 2xl:py-5 text-sm 2xl:text-base font-bold text-white shadow-xl shadow-primary-contact/30 hover:bg-primary-contact/90 hover:translate-y-[-2px] hover:shadow-2xl transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
           >
             {status.type === 'loading' ? (
               <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />

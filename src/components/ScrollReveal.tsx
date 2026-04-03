@@ -25,7 +25,7 @@ export default function ScrollReveal({
     animation = "animate-pop-bounce",
     threshold = 0.05,
     once = true,
-    offset = 60, // Trigger 40px after entering viewport by default
+    offset = 70, // Trigger 40px after entering viewport by default
 }: ScrollRevealProps) {
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
@@ -42,7 +42,7 @@ export default function ScrollReveal({
                     setIsVisible(false);
                 }
             },
-            { 
+            {
                 threshold,
                 rootMargin: `0px 0px -${offset}px 0px` // Negative bottom margin triggers it later
             }
@@ -67,8 +67,8 @@ export default function ScrollReveal({
             className={`
                 ${className}
                 transition-all
-                ${isVisible 
-                    ? `${animation} ${delay} ${duration} visible fill-mode-both` 
+                ${isVisible
+                    ? `${animation} ${delay} ${duration} visible fill-mode-both`
                     : "invisible pointer-events-none"
                 }
             `}

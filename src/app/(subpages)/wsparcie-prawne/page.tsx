@@ -15,10 +15,10 @@ export default function WsparciePrawnePage() {
     return (
         <main className="font-display text-slate-900 antialiased selection:bg-[#3385d9]/20 bg-[#f9fafb] relative min-h-screen">
             {/* Section 1: Hero */}
-            <section className="relative min-h-screen flex flex-col pt-26 pb-12 overflow-hidden bg-gradient-to-b from-white to-[#f9fafb]">
-                <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col relative z-10 w-full">
+            <section className="relative min-h-[100dvh] flex flex-col pt-20 lg:pt-22 2xl:pt-26 overflow-hidden bg-gradient-to-b from-white to-[#f9fafb]">
+                <div className="max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col relative z-10 w-full">
                     {/* Breadcrumbs */}
-                    <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm md:text-base font-medium mb-10">
+                    <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm md:text-base font-medium mb-5 lg:mb-6 2xl:mb-10">
                         <Link href="/" className="text-slate-500 hover:text-slate-900 transition-colors">
                             Strona główna
                         </Link>
@@ -28,7 +28,7 @@ export default function WsparciePrawnePage() {
 
                     <div className="relative flex-1 flex flex-col">
                         {/* Hero Image Frame */}
-                        <div className="relative flex-none rounded-[2.25rem] border border-slate-200/50 shadow-[0_40px_100px_rgba(2,6,23,0.08)] overflow-hidden h-[340px] sm:h-[400px] lg:h-[420px]">
+                        <div className="relative flex-none rounded-[2.25rem] border border-slate-200/50 shadow-[0_40px_100px_rgba(2,6,23,0.08)] overflow-hidden h-[280px] sm:h-[320px] lg:h-[310px] xl:h-[340px] 2xl:h-[420px]">
                             <div
                                 className="absolute inset-0 bg-cover bg-center transition-transform duration-[3s] hover:scale-105"
                                 style={{ backgroundImage: "url('/wsparcie-prawne.png')" }}
@@ -36,10 +36,9 @@ export default function WsparciePrawnePage() {
                             />
                             <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/30 to-slate-950/5" />
                             <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-30" />
-
-                            <div className="relative h-full flex flex-col justify-end px-7 pb-10 sm:px-10 sm:pb-12 lg:px-16 lg:pb-16 text-white text-pretty">
-                                <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter leading-[1] max-w-3xl drop-shadow-2xl">
-                                    Bezpieczeństwo<br/>
+                            <div className="relative h-full flex flex-col justify-end px-7 pb-8 sm:px-10 sm:pb-10 lg:px-12 lg:pb-12 2xl:px-16 2xl:pb-16 text-white text-pretty">
+                                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black tracking-tighter leading-[1] max-w-3xl drop-shadow-2xl">
+                                    Bezpieczeństwo<br />
                                     <span className="bg-gradient-to-r from-[#60a5fa] via-[#93c5fd] to-[#bae6fd] text-transparent bg-clip-text pr-2">
                                         Prawne Twojej firmy
                                     </span>
@@ -47,18 +46,17 @@ export default function WsparciePrawnePage() {
                                 </h1>
                             </div>
                         </div>
-
                         {/* Editorial Description */}
-                        <div className="pt-10 sm:pt-14 pb-12 flex flex-col items-start max-w-3xl">
-                            <p className="text-lg sm:text-xl lg:text-2xl text-slate-700 font-medium leading-[1.6] mb-8 tracking-tight text-pretty text-balance">
+                        <div className="pt-6 sm:pt-8 lg:pt-8 2xl:pt-14 pb-8 flex flex-col items-start max-w-3xl">
+                            <p className="text-base sm:text-lg lg:text-lg xl:text-xl 2xl:text-2xl text-slate-600 font-medium leading-[1.6] mb-4 2xl:mb-8 tracking-tight text-pretty text-balance">
                                 Profesjonalna obsługa prawna dedykowana sektorowi energetycznemu. Zabezpieczamy Twoje interesy w obliczu dynamicznych zmian rynkowych.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                {/* Centered Scroll Indicator */}
-                <div className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20 group transition-all duration-500 hover:pb-2 cursor-default">
+                {/* Centered Scroll Indicator - In Flow to prevent overlap */}
+                <div className="flex-none flex flex-col items-center gap-3 z-20 group transition-all duration-500 pt-8 pb-10 mt-auto cursor-default">
                     <span className="text-[10px] sm:text-xs font-black text-slate-500 uppercase tracking-[0.4em] group-hover:text-[#3385d9] transition-all duration-300 ml-[0.4em]">
                         Poznaj zakres wsparcia
                     </span>
@@ -71,7 +69,24 @@ export default function WsparciePrawnePage() {
 
             {/* Section 2: Services Section */}
             <section className="relative py-24 sm:py-32 bg-white overflow-hidden">
-                <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-24 sm:space-y-26">
+                {/* Background Waves - Truly Irregular and Entwined approach */}
+                <div className="absolute top-0 left-0 right-0 h-80 pointer-events-none opacity-[0.22] z-0">
+                    <svg className="w-full h-full" viewBox="0 0 1440 240" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M-100 120 C 150 180, 400 40, 620 130 C 850 210, 1100 60, 1540 140"
+                            stroke="#3385d9" strokeWidth="0.8" strokeLinecap="round"
+                        />
+                        <path
+                            d="M-100 140 C 250 60, 550 200, 850 100 C 1100 30, 1300 170, 1540 100"
+                            stroke="#3385d9" strokeWidth="0.8" strokeLinecap="round"
+                        />
+                        <path
+                            d="M-100 110 C 350 220, 150 20, 750 120 C 1200 240, 1000 0, 1540 120"
+                            stroke="#3385d9" strokeWidth="0.8" strokeLinecap="round"
+                        />
+                    </svg>
+                </div>
+                <div className="max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-24 sm:space-y-26">
                     <ScrollReveal>
                         <div className="flex flex-col items-center text-center mx-auto max-w-3xl">
                             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter mb-6 leading-tight text-slate-900">
@@ -90,7 +105,7 @@ export default function WsparciePrawnePage() {
                             <div className="group glass-card rounded-[2.5rem] overflow-hidden border border-slate-200/50 shadow-[0_40px_100px_rgba(15,23,42,0.06)] hover:shadow-[0_60px_120px_rgba(15,23,42,0.1)] transition-all duration-700 relative flex flex-col justify-center min-h-[220px]">
                                 {/* Background Image with mask */}
                                 <div className="absolute inset-0 z-0">
-                                    <Image 
+                                    <Image
                                         src="/wsparcie-prawne-card.jpg"
                                         alt="Doświadczona Kancelaria"
                                         fill

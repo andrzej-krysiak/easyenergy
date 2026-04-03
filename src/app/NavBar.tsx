@@ -35,7 +35,7 @@ export default function NavBar({ isStatic = false }: { isStatic?: boolean }) {
                 isFloating ? "top-3 sm:top-4" : "top-0"
             }`}
         >
-            <div className="max-w-[1620px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1360px] 2xl:max-w-[1620px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div
                     className={`h-[72px] border transition-[background-color,border-color,box-shadow,border-radius,backdrop-filter] duration-300 ${
                         scrolled
@@ -45,7 +45,7 @@ export default function NavBar({ isStatic = false }: { isStatic?: boolean }) {
                                 : "bg-transparent border-transparent shadow-none rounded-none backdrop-blur-0"
                     }`}
                 >
-                    <div className="max-w-screen-2xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+                    <div className="max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                         {/* Logo po lewej stronie */}
                         <div className="flex-shrink-0 flex items-center">
                             <Link href="/" className="flex items-center">
