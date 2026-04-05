@@ -62,7 +62,13 @@ const ContactForm = () => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
+    let { name, value } = e.target;
+    
+    // Filter out letters from phone input
+    if (name === 'phone') {
+      value = value.replace(/[^0-9+\s\-()]/g, '');
+    }
+
     setFormData(prev => ({ ...prev, [name]: value }));
     if (errors[name]) {
       setErrors(prev => {
@@ -75,71 +81,90 @@ const ContactForm = () => {
 
   return (
     <div className="relative z-10 w-full h-full">
-      <form onSubmit={handleSubmit} className="h-full flex flex-col space-y-4 2xl:space-y-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 2xl:gap-8">
-          <div className="space-y-3">
-            <label className="block text-sm font-semibold text-slate-900 mb-1 ml-1">Nazwa Twojej firmy</label>
+      <form onSubmit={handleSubmit} noValidate className="h-full flex flex-col space-y-3 lg:space-y-4">
+        
+        {/* Nazwa Firmy - Full Width */}
+        <div className="space-y-1">
+          <label className="flex items-center text-[13px] font-bold text-slate-900 mb-0.5 ml-1 font-display uppercase tracking-wider opacity-70">
+            Nazwa firmy
+            <span className={`text-red-600 text-base font-black ml-1.5 transition-opacity duration-200 ${errors.companyName ? 'opacity-100' : 'opacity-0'}`}>*</span>
+          </label>
+          <input
+            type="text"
+            name="companyName"
+            value={formData.companyName}
+            onChange={handleChange}
+            placeholder="np. Eco Solutions"
+            className={`block w-full rounded-xl border-slate-200/60 bg-white/50 px-4 py-2.5 text-[13.5px] text-slate-900 placeholder-slate-400 transition-all form-input-focus border ${errors.companyName ? 'border-red-400 bg-red-50/50' : ''} outline-none`}
+          />
+        </div>
+
+        {/* Adres Email & Numer Telefonu - 50/50 Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4">
+          <div className="space-y-1">
+            <label className="flex items-center text-[13px] font-bold text-slate-900 mb-0.5 ml-1 font-display uppercase tracking-wider opacity-70">
+              Adres Email
+              <span className={`text-red-600 text-base font-black ml-1.5 transition-opacity duration-200 ${errors.email && formData.email === '' ? 'opacity-100' : 'opacity-0'}`}>*</span>
+            </label>
             <input
-              type="text"
-              name="companyName"
-              value={formData.companyName}
+              type="email"
+              name="email"
+              value={formData.email}
               onChange={handleChange}
-              placeholder="np. Eco Solutions Sp. z o.o."
-              className={`block w-full rounded-lg 2xl:rounded-xl border-slate-200/60 bg-white/50 px-4 py-3 2xl:px-5 2xl:py-4 text-sm 2xl:text-base text-slate-900 placeholder-slate-400 transition-all form-input-focus border ${errors.companyName ? 'border-red-400 bg-red-50/50' : ''} outline-none`}
+              placeholder="kontakt@twojafirma.pl"
+              className={`block w-full rounded-xl border-slate-200/60 bg-white/50 px-4 py-2.5 text-[13.5px] text-slate-900 placeholder-slate-400 transition-all form-input-focus border ${errors.email ? 'border-red-400 bg-red-50/50' : ''} outline-none`}
             />
-            {errors.companyName && <p className="text-red-500 text-xs mt-1 ml-1">{errors.companyName}</p>}
+            {errors.email && formData.email !== '' && (
+              <p className="text-red-500 text-[11px] mt-1 ml-1 font-bold">{errors.email}</p>
+            )}
           </div>
-          <div className="space-y-3">
-            <label className="block text-sm font-semibold text-slate-900 mb-1 ml-1">Numer telefonu</label>
+
+          <div className="space-y-1">
+            <label className="flex items-center text-[13px] font-bold text-slate-900 mb-0.5 ml-1 font-display uppercase tracking-wider opacity-70">
+              Numer telefonu
+              <span className={`text-red-600 text-base font-black ml-1.5 transition-opacity duration-200 ${errors.phone && formData.phone === '' ? 'opacity-100' : 'opacity-0'}`}>*</span>
+            </label>
             <input
               type="tel"
               name="phone"
               value={formData.phone}
               onChange={handleChange}
               placeholder="+48 123 456 789"
-              className={`block w-full rounded-lg 2xl:rounded-xl border-slate-200/60 bg-white/50 px-4 py-3 2xl:px-5 2xl:py-4 text-sm 2xl:text-base text-slate-900 placeholder-slate-400 transition-all form-input-focus border ${errors.phone ? 'border-red-400 bg-red-50/50' : ''} outline-none`}
+              className={`block w-full rounded-xl border-slate-200/60 bg-white/50 px-4 py-2.5 text-[13.5px] text-slate-900 placeholder-slate-400 transition-all form-input-focus border ${errors.phone ? 'border-red-400 bg-red-50/50' : ''} outline-none`}
             />
-            {errors.phone && <p className="text-red-500 text-xs mt-1 ml-1">{errors.phone}</p>}
+            {errors.phone && formData.phone !== '' && (
+              <p className="text-red-500 text-[11px] mt-1 ml-1 font-bold">{errors.phone}</p>
+            )}
           </div>
         </div>
 
-        <div className="space-y-3">
-          <label className="block text-sm font-semibold text-slate-900 mb-1 ml-1">Adres Email</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="kontakt@twojafirma.pl"
-            className={`block w-full rounded-lg 2xl:rounded-xl border-slate-200/60 bg-white/50 px-4 py-3 2xl:px-5 2xl:py-4 text-sm 2xl:text-base text-slate-900 placeholder-slate-400 transition-all form-input-focus border ${errors.email ? 'border-red-400 bg-red-50/50' : ''} outline-none`}
-          />
-          {errors.email && <p className="text-red-500 text-xs mt-1 ml-1">{errors.email}</p>}
-        </div>
-
-        <div className="space-y-3 flex-grow flex flex-col">
-          <label className="block text-sm font-semibold text-slate-900 mb-1 ml-1">Wiadomość</label>
+        {/* Wiadomość */}
+        <div className="flex-grow flex flex-col min-h-0">
+          <label className="flex items-center text-[13px] font-bold text-slate-900 mb-0.5 ml-1 font-display uppercase tracking-wider opacity-70">
+            Wiadomość
+            <span className={`text-red-600 text-base font-black ml-1.5 transition-opacity duration-200 ${errors.message ? 'opacity-100' : 'opacity-0'}`}>*</span>
+          </label>
           <textarea
             name="message"
             value={formData.message}
             onChange={handleChange}
             placeholder="W czym możemy Ci pomóc?"
-            className={`block w-full flex-grow rounded-lg 2xl:rounded-xl border-slate-200/60 bg-white/50 px-4 py-3 2xl:px-5 2xl:py-4 text-sm 2xl:text-base text-slate-900 placeholder-slate-400 transition-all form-input-focus border ${errors.message ? 'border-red-400 bg-red-50/50' : ''} outline-none resize-none min-h-[90px] lg:min-h-[110px] 2xl:min-h-[150px]`}
+            className={`block w-full flex-grow rounded-xl border-slate-200/60 bg-white/50 px-4 py-2.5 text-[13.5px] text-slate-900 placeholder-slate-400 transition-all form-input-focus border ${errors.message ? 'border-red-400 bg-red-50/50' : ''} outline-none resize-none min-h-[80px] lg:min-h-[100px]`}
           />
-          {errors.message && <p className="text-red-500 text-xs mt-1 ml-1">{errors.message}</p>}
         </div>
 
         <div className="pt-2">
           <button
             type="submit"
             disabled={status.type === 'loading'}
-            className="w-full sm:w-auto min-w-[220px] flex items-center justify-center rounded-full bg-primary-contact px-8 py-3.5 2xl:px-10 2xl:py-5 text-sm 2xl:text-base font-bold text-white shadow-xl shadow-primary-contact/30 hover:bg-primary-contact/90 hover:translate-y-[-2px] hover:shadow-2xl transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+            className="w-full sm:w-auto min-w-[180px] flex items-center justify-center rounded-full bg-primary-contact px-7 py-3 text-[13.5px] font-bold text-white shadow-lg shadow-primary-contact/25 hover:bg-primary-contact/90 hover:translate-y-[-1px] hover:shadow-xl transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
           >
             {status.type === 'loading' ? (
-              <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
             ) : (
               <>
                 <span>Wyślij wiadomość</span>
-                <FiSend className="w-5 h-5 ml-2" />
+                <FiSend className="w-4 h-4 ml-2" />
               </>
             )}
           </button>

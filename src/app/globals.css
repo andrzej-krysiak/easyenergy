@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+
+
 :root {
   --background: #f6f6f8;
   --foreground: #171717;
@@ -23,8 +25,6 @@
   .glass-card {
     background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
     transform: translateZ(0);
     backface-visibility: hidden;
   }
@@ -115,6 +115,78 @@
     100% {
       opacity: 1;
       transform: translateY(0) scale(1);
+    }
+  }
+
+  .animate-in-up {
+    animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1s ease-out both;
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .delay-100 { animation-delay: 100ms; }
+  .delay-150 { animation-delay: 150ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+  .delay-700 { animation-delay: 700ms; }
+  .delay-800 { animation-delay: 800ms; }
+
+  @media (min-width: 640px) {
+    .sm\:delay-0 { animation-delay: 0ms !important; }
+    .sm\:delay-150 { animation-delay: 150ms !important; }
+    .sm\:delay-300 { animation-delay: 300ms !important; }
+    .sm\:delay-450 { animation-delay: 450ms !important; }
+    .sm\:delay-600 { animation-delay: 600ms !important; }
+    .sm\:delay-750 { animation-delay: 750ms !important; }
+  }
+
+  @media (min-width: 768px) {
+    .md\:delay-0 { animation-delay: 0ms !important; }
+    .md\:delay-150 { animation-delay: 150ms !important; }
+    .md\:delay-300 { animation-delay: 300ms !important; }
+    .md\:delay-450 { animation-delay: 450ms !important; }
+    .md\:delay-600 { animation-delay: 600ms !important; }
+    .md\:delay-750 { animation-delay: 750ms !important; }
+  }
+
+  @media (min-width: 1024px) {
+    .lg\:delay-0 { animation-delay: 0ms !important; }
+    .lg\:delay-150 { animation-delay: 150ms !important; }
+    .lg\:delay-300 { animation-delay: 300ms !important; }
+  }
+
+  @keyframes fade-in-up-tilt {
+    0% {
+      opacity: 0;
+      transform: translateY(40px) rotate(2deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) rotate(0deg);
+    }
+  }
+
+  .animate-tilt-up {
+    animation: fade-in-up-tilt 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-responsive-tilt {
+    animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @media (min-width: 640px) {
+    .animate-responsive-tilt {
+      animation: fade-in-up-tilt 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
   }
 }

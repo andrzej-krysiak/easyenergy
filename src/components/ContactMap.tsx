@@ -1,9 +1,22 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+
+// Fixed Height Fix for Leaflet
+const MapResizer = () => {
+  const map = useMap();
+  useEffect(() => {
+    // Invalidate size once to ensure tiles match container after flex/grid layout completes
+    const timer = setTimeout(() => {
+      map.invalidateSize();
+    }, 400);
+    return () => clearTimeout(timer);
+  }, [map]);
+  return null;
+};
 
 // Fix for default marker icon issues in Leaflet with Next.js/Webpack
 const icon = L.icon({
@@ -17,7 +30,7 @@ const icon = L.icon({
   shadowSize: [41, 41]
 });
 
-const position: [number, number] = [52.2297, 21.0122]; // Warszawa centrum (przykładowo)
+const position: [number, number] = [51.768535467829025, 19.439469671226597]; // Łódź, ul. Żeligowskiego 32/34
 
 const ContactMap = () => {
   const [mounted, setMounted] = useState(false);
@@ -34,18 +47,12 @@ const ContactMap = () => {
 
   return (
     <MapContainer center={position} zoom={13} scrollWheelZoom={false} preferCanvas={true} className="w-full h-full rounded-2xl z-0">
+      <MapResizer />
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={position} icon={icon}>
-        <Popup>
-          <div className="font-sans text-center">
-            <strong className="text-[#3385d9]">EasyEnergy</strong><br />
-            nasze biuro!
-          </div>
-        </Popup>
-      </Marker>
+      <Marker position={position} icon={icon} interactive={false} />
     </MapContainer>
   );
 };

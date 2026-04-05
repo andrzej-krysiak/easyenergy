@@ -25,7 +25,7 @@ export default function ScrollReveal({
     animation = "animate-pop-bounce",
     threshold = 0.05,
     once = true,
-    offset = 70, // Trigger 40px after entering viewport by default
+    offset = 80, // Trigger 80px after entering viewport by default
 }: ScrollRevealProps) {
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef<HTMLDivElement>(null);

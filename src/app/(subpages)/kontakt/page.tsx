@@ -1,135 +1,165 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
-import { FiMapPin, FiClock, FiPhone, FiMail, FiChevronRight } from 'react-icons/fi';
-import MapWrapper from '../../../components/MapWrapper';
+import { 
+    FiMapPin, 
+    FiClock, 
+    FiPhone, 
+    FiMail, 
+    FiChevronRight 
+} from 'react-icons/fi';
 import ContactForm from '../../../components/ContactForm';
 import ScrollReveal from '../../../components/ScrollReveal';
+import MapWrapper from '../../../components/MapWrapper';
 
-const ContactPage = () => {
+export default function ContactPage() {
     return (
-        <main className="relative min-h-screen bg-[#f9fafb] font-display text-slate-900 overflow-hidden antialiased selection:bg-[#3385d9]/20">
-
-            {/* Nowe tło wektorowe - geometryczne delikatne kręgi (bez blobów, bez kratek, bez dziwnych fal) */}
-            <div className="absolute top-0 right-0 w-[900px] h-[900px] pointer-events-none opacity-20 -translate-y-1/4 translate-x-1/4 z-0">
-                <svg viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full rotate-12">
-                    <circle cx="400" cy="400" r="399" stroke="url(#paint0_linear_contact)" strokeWidth="1.5" />
-                    <circle cx="400" cy="400" r="280" stroke="url(#paint1_linear_contact)" strokeWidth="1" />
-                    <circle cx="400" cy="400" r="160" stroke="url(#paint2_linear_contact)" strokeWidth="0.5" />
-                    <defs>
-                        <linearGradient id="paint0_linear_contact" x1="0" y1="0" x2="800" y2="800" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#3385d9" stopOpacity="0" />
-                            <stop offset="1" stopColor="#3385d9" />
-                        </linearGradient>
-                        <linearGradient id="paint1_linear_contact" x1="120" y1="120" x2="680" y2="680" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#66b3ff" stopOpacity="0" />
-                            <stop offset="1" stopColor="#3385d9" />
-                        </linearGradient>
-                        <linearGradient id="paint2_linear_contact" x1="240" y1="240" x2="560" y2="560" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#4095ed" stopOpacity="0" />
-                            <stop offset="1" stopColor="#4095ed" />
-                        </linearGradient>
-                    </defs>
-                </svg>
-            </div>
-
-            {/* Dyskretna poświata wzmacniająca feeling premium */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#3385d9]/5 blur-[120px] rounded-full pointer-events-none z-0" />
-
-            <div className="relative z-10 mx-auto max-w-screen-xl 2xl:max-w-screen-2xl px-4 sm:px-6 lg:px-8 pt-20 lg:pt-22 2xl:pt-26 pb-24">
-
-                {/* Nowy Układ: Lewo (Tekst+Kafelki) - Prawo (Formularz) */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-stretch">
-
-                    {/* Lewa Kolumna */}
-                    <div className="flex flex-col w-full h-full lg:py-6">
-                        <ScrollReveal>
-                            <div className="mb-10 lg:mb-10">
-                                <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm md:text-base font-medium mb-4 lg:mb-4 2xl:mb-10">
-                                    <Link href="/" className="text-slate-500 hover:text-slate-900 transition-colors">
-                                        Strona główna
-                                    </Link>
-                                    <FiChevronRight className="text-slate-400 text-lg" />
-                                    <span className="text-[#3385d9]">Kontakt</span>
-                                </nav>
-                                <h1 className="text-4xl lg:text-4xl 2xl:text-6xl font-black tracking-tighter leading-tight text-slate-900 mb-4 2xl:mb-6">
-                                    Bądźmy w <span className="bg-gradient-to-r from-[#66b3ff] via-[#4095ed] to-[#3385d9] bg-clip-text text-transparent pr-2">kontakcie</span>.
-                                </h1>
-                                <p className="text-lg sm:text-lg text-slate-600 font-medium leading-relaxed max-w-lg">
-                                    Bez względu na to, czy interesuje Cię darmowa wycena, porada w temacie prawa energetycznego czy ogólne zapytanie – nasz zespół z chęcią odpowie.
-                                </p>
-                            </div>
-                        </ScrollReveal>
-
-                        {/* Kafelki pod opisem */}
-                        <ScrollReveal delay="delay-100" className="mt-auto">
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 2xl:gap-6">
-                                {/* Telefon */}
-                                <a href="tel:+48111222333" className="group bg-white/70 backdrop-blur-md border border-slate-200/80 rounded-2xl p-4 2xl:p-6 transition-all duration-300 hover:shadow-xl hover:bg-white hover:-translate-y-1">
-                                    <div className="w-10 h-10 2xl:w-12 2xl:h-12 rounded-xl bg-[#3385d9]/10 flex items-center justify-center text-[#3385d9] mb-3 2xl:mb-4 group-hover:bg-[#3385d9] group-hover:text-white transition-colors duration-300">
-                                        <FiPhone className="text-lg 2xl:text-xl" />
-                                    </div>
-                                    <h3 className="text-base 2xl:text-lg font-bold text-slate-900 mb-1">Telefon</h3>
-                                    <p className="text-slate-600 font-medium">+48 111 222 333</p>
-                                </a>
-
-                                {/* Email */}
-                                <a href="mailto:biuro@easyenergy.pl" className="group bg-white/70 backdrop-blur-md border border-slate-200/80 rounded-2xl p-4 2xl:p-6 transition-all duration-300 hover:shadow-xl hover:bg-white hover:-translate-y-1">
-                                    <div className="w-10 h-10 2xl:w-12 2xl:h-12 rounded-xl bg-[#3385d9]/10 flex items-center justify-center text-[#3385d9] mb-3 2xl:mb-4 group-hover:bg-[#3385d9] group-hover:text-white transition-colors duration-300">
-                                        <FiMail className="text-lg 2xl:text-xl" />
-                                    </div>
-                                    <h3 className="text-base 2xl:text-lg font-bold text-slate-900 mb-1">Email</h3>
-                                    <p className="text-slate-600 font-medium text-xs 2xl:text-sm break-words">biuro@easyenergy.pl</p>
-                                </a>
-
-                                {/* Biuro */}
-                                <div className="bg-white/70 backdrop-blur-md border border-slate-200/80 rounded-2xl p-4 2xl:p-6 transition-all duration-300 hover:shadow-xl hover:bg-white group">
-                                    <div className="w-10 h-10 2xl:w-12 2xl:h-12 rounded-xl bg-[#3385d9]/10 flex items-center justify-center text-[#3385d9] mb-3 2xl:mb-4 group-hover:bg-[#3385d9] group-hover:text-white transition-colors duration-300">
-                                        <FiMapPin className="text-lg 2xl:text-xl" />
-                                    </div>
-                                    <h3 className="text-base 2xl:text-lg font-bold text-slate-900 mb-1">Biuro</h3>
-                                    <p className="text-slate-600 font-medium text-xs 2xl:text-base">ul. Przykładowa 12/34<br />00-001 Warszawa</p>
-                                </div>
-
-                                {/* Godziny */}
-                                <div className="bg-white/70 backdrop-blur-md border border-slate-200/80 rounded-2xl p-4 2xl:p-6 transition-all duration-300 hover:shadow-xl hover:bg-white group">
-                                    <div className="w-10 h-10 2xl:w-12 2xl:h-12 rounded-xl bg-[#3385d9]/10 flex items-center justify-center text-[#3385d9] mb-3 2xl:mb-4 group-hover:bg-[#3385d9] group-hover:text-white transition-colors duration-300">
-                                        <FiClock className="text-lg 2xl:text-xl" />
-                                    </div>
-                                    <h3 className="text-base 2xl:text-lg font-bold text-slate-900 mb-1">Godziny</h3>
-                                    <p className="text-slate-600 font-medium text-xs 2xl:text-base">Pon - Pt:<br />08:00 - 16:00</p>
-                                </div>
-                            </div>
-                        </ScrollReveal>
-                    </div>
-
-                    {/* Prawa Kolumna - Odświeżony Formularz */}
-                    <div className="w-full h-full flex items-center lg:items-start 2xl:items-center">
-                        <ScrollReveal delay="delay-200" className="w-full">
-                            <div className="bg-white/50 backdrop-blur-2xl border border-white/90 rounded-[2.5rem] shadow-[0_20px_80px_rgba(2,6,23,0.06)] p-6 lg:p-6 2xl:p-12 w-full max-w-[600px] ml-auto">
-                                <div className="mb-4 2xl:mb-8 pl-1">
-                                    <h3 className="text-xl 2xl:text-2xl font-black text-slate-900 mb-1 2xl:mb-2">Wyślij wiadomość</h3>
-                                    <p className="text-sm font-medium text-slate-500">Nasz zespół skontaktuje się z Tobą najszybciej jak to możliwe.</p>
-                                </div>
-                                <ContactForm />
-                            </div>
-                        </ScrollReveal>
-                    </div>
+        <main className="relative font-display text-slate-900 antialiased selection:bg-[#3385d9]/20 bg-[#f9fafb]">
+            
+            {/* Section 1: Hero & Vision */}
+            <section className="relative flex flex-col pt-20 lg:pt-24 overflow-hidden bg-white rounded-b-[2.5rem] sm:rounded-b-[3rem] lg:rounded-b-[4rem] shadow-[0_15px_25px_-12px_rgba(0,0,0,0.08)] z-10">
+                
+                {/* Background Energy Paths - Now behind the card */}
+                <div className="absolute inset-0 opacity-[0.12] pointer-events-none z-0">
+                    <svg width="100%" height="100%" viewBox="0 0 1440 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="energyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stopColor="#3385d9" stopOpacity="0" />
+                                <stop offset="50%" stopColor="#3385d9" stopOpacity="1" />
+                                <stop offset="100%" stopColor="#3385d9" stopOpacity="0" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M-200 500 L 1600 100" stroke="url(#energyGrad)" strokeWidth="1" fill="none" />
+                        <path d="M-200 550 L 1600 150" stroke="url(#energyGrad)" strokeWidth="2" fill="none" />
+                        <path d="M100 650 L 1400 -50" stroke="url(#energyGrad)" strokeWidth="0.5" fill="none" />
+                        <path d="M400 700 L 1800 200" stroke="url(#energyGrad)" strokeWidth="1.5" fill="none" />
+                        <path d="M-300 200 L 1000 600" stroke="url(#energyGrad)" strokeWidth="1" opacity="0.4" fill="none" />
+                        {/* Technical Accent Nodes */}
+                        <circle cx="800" cy="300" r="3" fill="#3385d9" opacity="0.5" />
+                        <circle cx="400" cy="450" r="2" fill="#3385d9" opacity="0.3" />
+                        <circle cx="1100" cy="150" r="4" fill="#3385d9" opacity="0.2" />
+                    </svg>
                 </div>
 
-                {/* Mapa w osobnym bloku na dole, na całą szerokość, by nie zgniatała designu kolumn */}
-                <ScrollReveal delay="delay-300">
-                    <div className="mt-16 lg:mt-24 bg-white/60 backdrop-blur-xl rounded-[2.5rem] border border-white shadow-xl shadow-slate-200/40 p-3 sm:p-4 w-full h-[400px] lg:h-[450px]">
-                        <div className="w-full h-full rounded-2xl sm:rounded-[1.5rem] overflow-hidden relative shadow-inner grayscale-[20%] opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-                            <MapWrapper />
+                <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col relative z-10 w-full">
+                    {/* Breadcrumbs - Restored */}
+                    <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm md:text-base font-medium mb-5 lg:mb-6 animate-in-up">
+                        <Link href="/" className="text-slate-500 hover:text-slate-900 transition-colors">
+                            Strona główna
+                        </Link>
+                        <FiChevronRight className="text-slate-400 text-lg" />
+                        <span className="text-[#3385d9]">Kontakt</span>
+                    </nav>
+
+                    <div className="relative flex flex-col">
+                        {/* Hero Image Frame */}
+                        <div className="relative flex-none rounded-[2.25rem] border border-slate-200/50 shadow-[0_40px_100px_rgba(2,6,23,0.08)] overflow-hidden h-[260px] sm:h-[300px] md:h-[320px] lg:h-[340px] xl:h-[380px]">
+                            <Image
+                                src="/contact-hero.png"
+                                alt="Kontakt EasyEnergy"
+                                fill
+                                className="object-cover object-center"
+                                priority
+                                sizes="(max-width: 1280px) 100vw, 1280px"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/30 to-slate-950/5 z-10" />
+                            
+                            <div className="relative z-20 h-full flex flex-col justify-end px-7 pb-8 sm:px-10 sm:pb-10 lg:px-12 lg:pb-12 text-white animate-in-up delay-200">
+                                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tighter leading-[1] max-w-3xl drop-shadow-2xl">
+                                    Bądźmy w <br />
+                                    <span className="bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 text-transparent bg-clip-text pr-1 sm:pr-2">
+                                        kontakcie
+                                    </span>
+                                    .
+                                </h1>
+                            </div>
+                        </div>
+                        {/* Editorial Description */}
+                        <div className="pt-6 sm:pt-8 lg:pt-10 pb-8 flex flex-col items-center sm:items-start max-w-3xl animate-in-up delay-300">
+                            <p className="text-center sm:text-left text-base sm:text-lg xl:text-xl text-slate-600 font-medium leading-[1.6] mb-4 tracking-tight text-pretty text-balance">
+                                Nasz zespół ekspertów jest gotowy do wsparcia Twojej firmy. Skontaktuj się z nami, aby porozmawiać o optymalizacji kosztów energii w Twoim przedsiębiorstwie.
+                            </p>
                         </div>
                     </div>
-                </ScrollReveal>
+                </div>
+            </section>
 
-            </div>
+            {/* Section 2: Contact Details & Form */}
+            <section className="relative pt-8 sm:pt-10 lg:pt-12 pb-16 sm:pb-20 lg:pb-24 bg-[#f9fafb] overflow-hidden">
+                <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="flex flex-col-reverse lg:flex-row gap-12 items-stretch">
+                        
+                        {/* Left Column: Info Tiles + Map */}
+                        <div className="w-full lg:w-5/12 flex flex-col">
+                            <ScrollReveal className="flex flex-col gap-5 h-full">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    {/* Telefon */}
+                                    <a href="tel:+48664144448" className="group bg-white border border-slate-100 rounded-[1.25rem] p-4 lg:p-5 transition-all duration-300 hover:shadow-xl hover:border-[#3385d9]/30 hover:-translate-y-1">
+                                        <div className="size-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-[#3385d9] mb-3 group-hover:bg-[#3385d9] group-hover:text-white transition-all duration-300">
+                                            <FiPhone className="text-lg" />
+                                        </div>
+                                        <h3 className="text-base font-bold text-slate-900 mb-0.5">Infolinia</h3>
+                                        <p className="text-[13.5px] text-slate-600 font-medium">+48 664 144 448</p>
+                                    </a>
+
+                                    {/* Email */}
+                                    <a href="mailto:biuro@easyenergy.pl" className="group bg-white border border-slate-100 rounded-[1.25rem] p-4 lg:p-5 transition-all duration-300 hover:shadow-xl hover:border-[#3385d9]/30 hover:-translate-y-1">
+                                        <div className="size-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-[#3385d9] mb-3 group-hover:bg-[#3385d9] group-hover:text-white transition-all duration-300">
+                                            <FiMail className="text-lg" />
+                                        </div>
+                                        <h3 className="text-base font-bold text-slate-900 mb-0.5">Adres e-mail</h3>
+                                        <p className="text-[13.5px] text-slate-600 font-medium truncate">biuro@easyenergy.pl</p>
+                                    </a>
+
+                                    {/* Adres */}
+                                    <div className="group bg-white border border-slate-100 rounded-[1.25rem] p-4 lg:p-5 transition-all duration-300 hover:shadow-xl hover:border-[#3385d9]/30 hover:-translate-y-1">
+                                        <div className="size-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-[#3385d9] mb-3 group-hover:bg-[#3385d9] group-hover:text-white transition-all duration-300">
+                                            <FiMapPin className="text-lg" />
+                                        </div>
+                                        <h3 className="text-base font-bold text-slate-900 mb-0.5">Nasz adres</h3>
+                                        <p className="text-[13.5px] text-slate-600 font-medium leading-relaxed">ul. Żeligowskiego 32/34<br />90-643 Łódź</p>
+                                    </div>
+
+                                    {/* Godziny */}
+                                    <div className="group bg-white border border-slate-100 rounded-[1.25rem] p-4 lg:p-5 transition-all duration-300 hover:shadow-xl hover:border-[#3385d9]/30 hover:-translate-y-1">
+                                        <div className="size-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-[#3385d9] mb-3 group-hover:bg-[#3385d9] group-hover:text-white transition-all duration-300">
+                                            <FiClock className="text-lg" />
+                                        </div>
+                                        <h3 className="text-base font-bold text-slate-900 mb-0.5">Dostępność</h3>
+                                        <p className="text-[13.5px] text-slate-600 font-medium leading-tight">Pon - Pt: 08:00 - 16:00<br />Sob: nieczynne</p>
+                                    </div>
+                                </div>
+
+                                {/* Map Integrated below Info Tiles */}
+                                <div className="flex-grow flex flex-col min-h-[250px] lg:min-h-[220px]">
+                                    <div className="flex-grow relative w-full rounded-xl border border-slate-200/50 shadow-[0_15px_40px_rgba(2,6,23,0.04)] overflow-hidden group">
+                                        <div className="absolute inset-0 grayscale-[15%] opacity-90 transition-all duration-1000 hover:grayscale-0 hover:opacity-100">
+                                            <MapWrapper />
+                                        </div>
+                                    </div>
+                                </div>
+                            </ScrollReveal>
+                        </div>
+
+                        {/* Form Card - Right Column */}
+                        <div className="w-full lg:w-7/12">
+                            <ScrollReveal delay="delay-100" className="h-full">
+                                <div className="bg-white border border-slate-100 rounded-[1.5rem] lg:rounded-[2rem] shadow-[0_30px_80px_rgba(2,6,23,0.08)] p-6 sm:p-8 lg:p-9 h-full flex flex-col">
+                                    <div className="mb-6 shrink-0">
+                                        <h2 className="text-2xl font-black text-slate-900 tracking-tight mb-1.5">Wyślij wiadomość</h2>
+                                        <p className="text-sm text-slate-500 font-medium">Skontaktujemy się z Tobą w ciągu 24 godzin.</p>
+                                    </div>
+                                    <div className="flex-grow">
+                                        <ContactForm />
+                                    </div>
+                                </div>
+                            </ScrollReveal>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
     );
-};
-
-export default ContactPage;
+}

@@ -7,6 +7,7 @@ import MobileMenu from './MobileMenu';
 
 export default function NavBar({ isStatic = false }: { isStatic?: boolean }) {
     const [scrolled, setScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const isFloating = scrolled;
     const useSolidVariant = isStatic || scrolled;
     const linkStyles = useSolidVariant
@@ -35,19 +36,19 @@ export default function NavBar({ isStatic = false }: { isStatic?: boolean }) {
                 isFloating ? "top-3 sm:top-4" : "top-0"
             }`}
         >
-            <div className="max-w-[1360px] 2xl:max-w-[1620px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div
-                    className={`h-[72px] border transition-[background-color,border-color,box-shadow,border-radius,backdrop-filter] duration-300 ${
-                        scrolled
-                            ? "bg-white/78 backdrop-blur-xl supports-[backdrop-filter]:bg-white/70 shadow-[0_8px_28px_rgba(15,23,42,0.12)] border-white/55 rounded-full"
-                            : isStatic
-                                ? "bg-transparent border-transparent shadow-none rounded-none backdrop-blur-0"
+                    className={`h-[72px] border transition-all ${isMobileMenuOpen ? 'duration-75' : 'duration-500'} ${
+                        isMobileMenuOpen
+                            ? "bg-transparent border-transparent shadow-none rounded-none backdrop-blur-0"
+                            : scrolled
+                                ? "bg-white/78 backdrop-blur-xl supports-[backdrop-filter]:bg-white/70 shadow-[0_8px_28px_rgba(15,23,42,0.12)] border-white/55 rounded-full"
                                 : "bg-transparent border-transparent shadow-none rounded-none backdrop-blur-0"
                     }`}
                 >
-                    <div className="max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+                    <div className="max-w-screen-xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                         {/* Logo po lewej stronie */}
-                        <div className="flex-shrink-0 flex items-center">
+                        <div className={`flex-shrink-0 flex items-center transition-opacity ${isMobileMenuOpen ? 'duration-75 opacity-0 pointer-events-none' : 'duration-500 opacity-100'}`}>
                             <Link href="/" className="flex items-center">
                                 <Image
                                     src={useSolidVariant ? "/easyenergy-logo.png" : "/easyenergy-logo-light.png"}
@@ -61,7 +62,7 @@ export default function NavBar({ isStatic = false }: { isStatic?: boolean }) {
                         </div>
 
                         {/* Desktop Links - Server Side Rendered */}
-                        <ul className="hidden md:flex items-center space-x-8">
+                        <ul className="hidden lg:flex items-center space-x-6 xl:space-x-8">
                             {links.map((link) => (
                                 <li key={link.href}>
                                     <Link
@@ -75,7 +76,12 @@ export default function NavBar({ isStatic = false }: { isStatic?: boolean }) {
                         </ul>
 
                         {/* Mobile Menu - Client Side Rendered */}
-                        <MobileMenu links={links} />
+                        <MobileMenu 
+                            links={links} 
+                            useSolidVariant={useSolidVariant} 
+                            isOpen={isMobileMenuOpen} 
+                            setIsOpen={setIsMobileMenuOpen} 
+                        />
                     </div>
                 </div>
             </div>
