@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -6,9 +7,17 @@ import { IoIosArrowDown } from 'react-icons/io';
 import ScrollReveal from '../../../components/ScrollReveal';
 import EnergyModelsAdvisor from '../../../components/EnergyModelsAdvisor';
 
-export const metadata = {
-    title: 'Paliwo Gazowe | EasyEnergy',
-    description: 'Dostarczamy nowoczesne rozwiązania gazowe opierające się na jasnych i korzystnych modelach zakupowych.',
+export const metadata: Metadata = {
+    title: 'Paliwo Gazowe',
+    description: 'Dostarczamy nowoczesne rozwiązania gazowe opierające się na jasnych i korzystnych modelach zakupowych. Skontaktuj się i obniż koszty gazu.',
+    alternates: {
+        canonical: "/paliwo-gazowe",
+    },
+    openGraph: {
+        title: 'Paliwo Gazowe dla Biznesu - Optymalizacja Kosztów | EasyEnergy',
+        description: 'Nie przepłacaj za paliwo gazowe. Skorzystaj z eksperckiej wiedzy i zoptymalizuj zakup gazu w swojej firmie na lata.',
+        url: 'https://easyenergy.pl/paliwo-gazowe',
+    }
 };
 
 export default function PaliwoGazowePage() {

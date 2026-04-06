@@ -1,14 +1,22 @@
-import React from 'react';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MdGavel, MdSecurity, MdDescription, MdAccountBalance } from 'react-icons/md';
-import { FiChevronRight, FiShield, FiTarget, FiZap, FiSettings } from 'react-icons/fi';
+import { MdGavel, MdDescription, MdAccountBalance } from 'react-icons/md';
+import { FiChevronRight, FiShield, FiZap } from 'react-icons/fi';
 import { IoIosArrowDown } from 'react-icons/io';
 import ScrollReveal from '../../../components/ScrollReveal';
 
-export const metadata = {
-    title: 'Wsparcie Prawne | EasyEnergy',
-    description: 'Profesjonalna obsługa prawna dedykowana sektorowi energetycznemu. Zabezpieczamy Twoje interesy w obliczu dynamicznych zmian rynkowych.',
+export const metadata: Metadata = {
+    title: 'Wsparcie Prawne',
+    description: 'Profesjonalna obsługa prawna dedykowana sektorowi energetycznemu. Zabezpieczamy Twoje interesy w obliczu dynamicznych zmian rynkowych i skomplikowanych umów.',
+    alternates: {
+        canonical: "/wsparcie-prawne",
+    },
+    openGraph: {
+        title: 'Wsparcie Prawne Prawa Energetycznego | EasyEnergy',
+        description: 'Reprezentujemy biznes w negocjacjach umów energetycznych i odszkodowaniach. Pozwól nam zabezpieczyć przyszłość Twojej firmy.',
+        url: 'https://easyenergy.pl/wsparcie-prawne',
+    }
 };
 
 export default function WsparciePrawnePage() {
@@ -153,7 +161,7 @@ export default function WsparciePrawnePage() {
                                         <div className="hidden sm:flex size-14 bg-[#3385d9]/10 rounded-2xl items-center justify-center text-[#3385d9] group-hover:scale-110 transition-all duration-500">
                                             <MdGavel className="text-2xl" />
                                         </div>
-                                        <h3 className="text-2xl sm:text-3xl font-black tracking-tight bg-gradient-to-br from-[#1685d9] to-slate-900 bg-clip-text text-transparent">
+                                        <h3 className="text-2xl sm:text-3xl font-black tracking-tight bg-gradient-to-br from-slate-800 to-[#3385d9] bg-clip-text text-transparent">
                                             Doświadczona Kancelaria
                                         </h3>
                                         <p className="text-slate-600 sm:text-lg font-medium leading-relaxed">

@@ -1,6 +1,4 @@
-"use client";
-
-import React from 'react';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { 
@@ -13,6 +11,19 @@ import {
 import ContactForm from '../../../components/ContactForm';
 import ScrollReveal from '../../../components/ScrollReveal';
 import MapWrapper from '../../../components/MapWrapper';
+
+export const metadata: Metadata = {
+    title: 'Kontakt',
+    description: 'Nasz zespół ekspertów z EasyEnergy jest gotowy do wsparcia Twojej firmy. Skontaktuj się z nami odnośnie audytu i optymalizacji.',
+    alternates: {
+      canonical: "/kontakt",
+    },
+    openGraph: {
+      title: 'Skontaktuj się z EasyEnergy',
+      description: 'Zoptymalizuj koszty w swojej firmie. Skontaktuj się już dziś, a przygotujemy ofertę dopasowaną do Twoich potrzeb.',
+      url: 'https://easyenergy.pl/kontakt',
+    }
+};
 
 export default function ContactPage() {
     return (

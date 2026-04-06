@@ -1,11 +1,43 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import logo from '@/public/easyenergy-logo-white.png';
 import { FiFacebook, FiLinkedin, FiInstagram, FiPhone, FiMail, FiMapPin } from 'react-icons/fi';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
+    const pathname = usePathname();
+
+    const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (href === '/' && pathname === '/') {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            return;
+        }
+
+        if (href === '/#oferta' && pathname === '/') {
+            e.preventDefault();
+            const element = document.getElementById('oferta');
+            if (element) {
+                const offset = 80; // Offset dla przyklejonego navbaru
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = element.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    };
 
     const sections = {
         links: [
@@ -48,7 +80,11 @@ const Footer = () => {
                         <ul className="space-y-4 text-sm font-medium">
                             {sections.links.map((link) => (
                                 <li key={link.href}>
-                                    <Link href={link.href} className="hover:text-[#3385d9] transition-colors flex items-center group">
+                                    <Link 
+                                        href={link.href} 
+                                        onClick={(e) => handleLinkClick(e, link.href)}
+                                        className="hover:text-[#3385d9] transition-colors flex items-center group"
+                                    >
                                         <span className="w-1.5 h-1.5 rounded-full bg-slate-700 mr-2 group-hover:bg-[#3385d9] transition-colors"></span>
                                         {link.name}
                                     </Link>
@@ -86,11 +122,11 @@ const Footer = () => {
                             </li>
                             <li className="flex items-center">
                                 <FiMail className="mr-3 text-[#3385d9] flex-shrink-0" />
-                                <a href="mailto:biuro@easyenergy.pl" className="hover:text-white transition-colors lowercase">biuro@easyenergy.pl</a>
+                                <a href="mailto:biuro@easyenergy.pl" aria-label="Napisz do nas maila" className="hover:text-white transition-colors lowercase">biuro@easyenergy.pl</a>
                             </li>
                             <li className="flex items-center">
                                 <FiPhone className="mr-3 text-[#3385d9] flex-shrink-0" />
-                                <a href="tel:+48664144448" className="hover:text-white transition-colors">+48 664 144 448</a>
+                                <a href="tel:+48664144448" aria-label="Zadzwoń do nas" className="hover:text-white transition-colors">+48 664 144 448</a>
                             </li>
                         </ul>
                     </div>
@@ -101,9 +137,9 @@ const Footer = () => {
                         &copy; {currentYear} Easy Energy sp. z o.o. Wszystkie prawa zastrzeżone.
                     </p>
                     <div className="flex items-center space-x-6">
-                        <a href="#" className="hover:text-[#3385d9] transition-all hover:scale-110 active:scale-95"><FiLinkedin className="text-base" /></a>
-                        <a href="#" className="hover:text-[#3385d9] transition-all hover:scale-110 active:scale-95"><FiFacebook className="text-base" /></a>
-                        <a href="#" className="hover:text-[#3385d9] transition-all hover:scale-110 active:scale-95"><FiInstagram className="text-base" /></a>
+                        <a href="#" aria-label="Profil LinkedIn" target="_blank" rel="noopener noreferrer" className="hover:text-[#3385d9] transition-all hover:scale-110 active:scale-95"><FiLinkedin className="text-base" /></a>
+                        <a href="#" aria-label="Profil Facebook" target="_blank" rel="noopener noreferrer" className="hover:text-[#3385d9] transition-all hover:scale-110 active:scale-95"><FiFacebook className="text-base" /></a>
+                        <a href="#" aria-label="Profil Instagram" target="_blank" rel="noopener noreferrer" className="hover:text-[#3385d9] transition-all hover:scale-110 active:scale-95"><FiInstagram className="text-base" /></a>
                     </div>
                 </div>
             </div>

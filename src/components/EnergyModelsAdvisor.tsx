@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
+
 import Link from 'next/link';
 import { FiCheckCircle, FiInfo, FiChevronRight, FiChevronDown } from 'react-icons/fi';
 import { allModels } from './energyModelsData';

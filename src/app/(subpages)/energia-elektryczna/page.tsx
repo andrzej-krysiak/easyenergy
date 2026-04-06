@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -6,9 +7,17 @@ import { IoIosArrowDown } from 'react-icons/io';
 import ScrollReveal from '../../../components/ScrollReveal';
 import EnergyModelsAdvisor from '../../../components/EnergyModelsAdvisor';
 
-export const metadata = {
-    title: 'Energia Elektryczna | EasyEnergy',
-    description: 'Dostarczamy nowoczesne rozwiązania energetyczne oparte na czystych źródłach i transparentnych zasadach. Wybierz segment dopasowany do Twojego stylu życia.',
+export const metadata: Metadata = {
+    title: 'Energia Elektryczna',
+    description: 'Dostarczamy nowoczesne rozwiązania energetyczne oparte na czystych źródłach i transparentnych kontraktach dla firm. Zaplanuj koszty energii z EasyEnergy.',
+    alternates: {
+        canonical: "/energia-elektryczna",
+    },
+    openGraph: {
+        title: 'Energia Elektryczna dla Firm - Optymalizacja | EasyEnergy',
+        description: 'Zabezpiecz stabilność firmy przed niespodziewanymi podwyżkami. Profesjonalne zabezpieczenia i dedykowany dobór ofert dla energii elektrycznej.',
+        url: 'https://easyenergy.pl/energia-elektryczna',
+    }
 };
 
 export default function EnergiaElektrycznaPage() {

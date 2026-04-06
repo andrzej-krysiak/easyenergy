@@ -57,12 +57,14 @@ const ContactForm = () => {
         setStatus({ type: 'error', message: data.error || 'Wystąpił błąd. Spróbuj ponownie.' });
       }
     } catch (err) {
+      console.error(err);
       setStatus({ type: 'error', message: 'Problem z połączeniem. Sprawdź internet.' });
     }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    let { name, value } = e.target;
+    const { name } = e.target;
+    let { value } = e.target;
     
     // Filter out letters from phone input
     if (name === 'phone') {

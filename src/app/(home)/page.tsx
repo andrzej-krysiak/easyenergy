@@ -1,8 +1,15 @@
-import Link from "next/link";
+import { Metadata } from "next";
 import RoadMap from "./RoadMap";
 import OfferSection from "./OfferSection";
 import HeroButtons from "./HeroButtons";
 import { FiTrendingDown, FiShield, FiCheckCircle } from "react-icons/fi";
+
+export const metadata: Metadata = {
+  description: "Specjalizujemy się w optymalizacji kosztów energii elektrycznej i gazu. Zapewniamy kompleksowy audyt oraz wsparcie z zakresu prawa energetycznego dla firm.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
     return (
@@ -51,30 +58,30 @@ export default function Home() {
 
                     {/* Piękny szklany pasek z metrykami zaufania i uderzającymi argumentami */}
                     <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-                        <div className="p-3 sm:p-6 md:p-8 lg:p-10 bg-white/10 backdrop-blur-[40px] border border-white/20 rounded-[2rem] md:rounded-[2.5rem] shadow-[0_18px_70px_rgba(0,0,0,0.35)] flex flex-row items-stretch justify-between divide-x divide-white/15 animate-in-up delay-300 transform-gpu">
+                        <div className="p-3 sm:p-6 md:p-7 lg:p-8 bg-white/10 backdrop-blur-[40px] border border-white/20 rounded-[2rem] md:rounded-[2.5rem] shadow-[0_18px_70px_rgba(0,0,0,0.35)] flex flex-row items-stretch justify-between divide-x divide-white/15 animate-in-up delay-300 transform-gpu">
                             
-                            <div className="flex-1 flex flex-col items-center justify-center md:items-start text-center md:text-left px-2 sm:px-6 group">
+                            <div className="flex-1 flex flex-col items-center justify-center text-center px-2 sm:px-6 group">
                                 <div className="size-8 sm:size-10 bg-white/10 text-[#66b3ff] rounded-xl sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform border border-white/15">
                                     <FiTrendingDown className="w-4 h-4 sm:w-5 h-5" />
                                 </div>
                                 <h4 className="text-white font-bold mb-1 text-[10px] sm:text-xs md:text-sm leading-tight">Optymalizacja KFE</h4>
-                                <p className="hidden sm:block text-white/70 text-xs font-medium">Zakupy w najniższych możliwych dołkach giełdowych.</p>
+                                <p className="hidden sm:block text-white/70 text-xs lg:text-sm font-medium">Zakupy w najniższych możliwych dołkach giełdowych.</p>
                             </div>
 
-                             <div className="flex-1 flex flex-col items-center justify-center md:items-start text-center md:text-left px-2 sm:px-6 group">
+                             <div className="flex-1 flex flex-col items-center justify-center text-center px-2 sm:px-6 group">
                                 <div className="size-8 sm:size-10 bg-white/10 text-[#66b3ff] rounded-xl sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform border border-white/15">
                                     <FiShield className="w-4 h-4 sm:w-5 h-5" />
                                 </div>
                                 <h4 className="text-white font-bold mb-1 text-[10px] sm:text-xs md:text-sm leading-tight">Bezpieczeństwo Prawne</h4>
-                                <p className="hidden sm:block text-white/70 text-xs font-medium">Brak ukrytych opłat i zero niekorzystnych zapisów umownych.</p>
+                                <p className="hidden sm:block text-white/70 text-xs lg:text-sm font-medium">Brak ukrytych opłat i zero niekorzystnych zapisów umownych.</p>
                             </div>
 
-                            <div className="flex-1 flex flex-col items-center justify-center md:items-start text-center md:text-left px-2 sm:px-6 group">
+                            <div className="flex-1 flex flex-col items-center justify-center text-center px-2 sm:px-6 group">
                                 <div className="size-8 sm:size-10 bg-white/10 text-[#66b3ff] rounded-xl sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform border border-white/15">
                                     <FiCheckCircle className="w-4 h-4 sm:w-5 h-5" />
                                 </div>
                                 <h4 className="text-white font-bold mb-1 text-[10px] sm:text-xs md:text-sm leading-tight">Gwarancja Serwisu</h4>
-                                <p className="hidden sm:block text-white/70 text-xs font-medium">Całodobowy kontakt i wsparcie eksperckie w cenie procesu.</p>
+                                <p className="hidden sm:block text-white/70 text-xs lg:text-sm font-medium">Całodobowy kontakt i wsparcie eksperckie w cenie procesu.</p>
                             </div>
                         </div>
                     </div>
@@ -84,7 +91,7 @@ export default function Home() {
             <div className="relative">
                 <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-slate-950/10 to-transparent pointer-events-none z-40" />
                 <RoadMap />
-                <div id="oferta">
+                <div id="oferta" className="scroll-mt-[80px]">
                     <OfferSection />
                 </div>
             </div>
